@@ -1,0 +1,1344 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+<!-- Mirrored from ordainit.com/html/medito/medito/shop-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Apr 2026 05:27:46 GMT -->
+<head>
+   <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="Marudham Pharmacy">
+   <title>Marudham Pharmacy </title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+   <!-- Place favicon.ico in the root directory -->
+   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+   <!-- CSS here -->
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="assets/css/animate.css">
+   <link rel="stylesheet" href="assets/css/custom-animation.css">
+   <link rel="stylesheet" href="assets/css/slick.css">
+   <link rel="stylesheet" href="assets/css/nice-select.css">
+   <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+   <link rel="stylesheet" href="assets/css/flaticon_medical.css">
+   <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
+   <link rel="stylesheet" href="assets/css/magnific-popup.css">
+   <link rel="stylesheet" href="assets/css/spacing.css">
+   <link rel="stylesheet" href="assets/css/main.css">
+
+
+</head>
+<style>
+   .floating-contact {
+  position: fixed;
+  right: 15px;
+ top: 90%;
+  transform: translateY(-50%);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Buttons */
+.contact-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-size: 22px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.whatsapp { background: #176835; }
+.call { background: #c62828; }
+
+/* Floating Enquiry Box */
+.enquiry-float {
+  position: fixed;
+  right: 20px;
+  width: 260px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  z-index: 9999;
+    display: none;
+}
+/* Form */
+.enquiry-float form h4 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.enquiry-float input,
+.enquiry-float textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.enquiry-btn {
+  width: 100%;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.enquiry-btn:hover {
+  background: #c92f3c;
+}
+.product-points {
+   padding-left: 0;
+   list-style: none;
+   margin-top: 10px;
+}
+
+.product-points li {
+   margin-bottom: 6px;
+   font-weight: 500;
+}
+
+.enquiry-popup {
+   position: fixed;
+   inset: 0;
+   display: none;
+   z-index: 9999;
+}
+
+.enquiry-popup.active {
+   display: block;
+}
+
+.enquiry-popup-overlay {
+   position: absolute;
+   inset: 0;
+   background: rgba(0, 0, 0, 0.65);
+}
+
+.enquiry-popup-box {
+   position: relative;
+   width: 90%;
+   max-width: 520px;
+   background: #fff;
+   margin: 40px auto;
+   padding: 30px 25px;
+   border-radius: 12px;
+   z-index: 2;
+   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+
+   max-height: 90vh;        /* LIMIT HEIGHT */
+   overflow-y: auto;        /* ENABLE SCROLL */
+}
+.enquiry-popup-box h3 {
+   margin-bottom: 20px;
+   font-size: 28px;
+   text-align: center;
+}
+
+.enquiry-close {
+   position: absolute;
+   top: 10px;
+   right: 15px;
+   background: none;
+   border: none;
+   font-size: 30px;
+   cursor: pointer;
+   line-height: 1;
+}
+
+.form-group {
+   margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+   width: 100%;
+   padding: 12px 14px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   outline: none;
+   font-size: 15px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+   border-color: #5bb109;
+}
+
+.upload-label {
+   display: block;
+   margin-bottom: 8px;
+   font-weight: 600;
+   color: #222;
+}
+
+.file-note {
+   display: block;
+   margin-top: 8px;
+   color: #666;
+   font-size: 13px;
+}
+
+.preview-wrap {
+   text-align: center;
+}
+
+.preview-wrap img {
+   max-width: 100%;
+   max-height: 220px;
+   border-radius: 10px;
+   border: 1px solid #ddd;
+   padding: 5px;
+   background: #fff;
+}
+
+.submit-enquiry-btn {
+   border: none;
+   cursor: pointer;
+}
+
+.text-center {
+   text-align: center;
+}
+.enquiry-popup-box {
+   scrollbar-width: thin;
+}
+@media (max-width: 767px) {
+   @media (max-width: 767px) {
+   .enquiry-popup-box {
+      max-height: 85vh;
+      overflow-y: auto;
+   }
+}
+
+   .enquiry-popup-box h3 {
+      font-size: 22px;
+   }
+}
+</style>
+<body>
+<div class="floating-contact">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/917305489550" target="_blank" class="contact-btn whatsapp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Call -->
+  <a href="tel:+917305489550" class="contact-btn call">
+    <i class="fas fa-phone"></i>
+  </a>
+
+</div>
+   <!-- preloader -->
+   <!-- <div id="preloader">
+      <div class="preloader">
+         <span></span>
+         <span></span>
+      </div>
+   </div> -->
+   <!-- preloader end  -->
+
+   <!-- back-to-top-start  -->
+   <button class="scroll-top scroll-to-target" data-target="html">
+      <i class="far fa-angle-double-up"></i>
+   </button>
+   <!-- back-to-top-end  -->
+<!-- it-offcanvus-area-start -->
+   <div class="it-offcanvas-area" style="background-color: #fff;">
+      <div class="itoffcanvas">
+         <div class="itoffcanvas__close-btn">
+            <button class="close-btn"><i class="fal fa-times"></i></button>
+         </div>
+         <div class="itoffcanvas__logo">
+            <a href="index.html">
+               <img src="assets/img/logo1.png" alt="" style="height: 100px;">
+            </a>
+         </div>
+         <!-- <div class="itoffcanvas__text">
+            <p>Suspendisse interdum consectetur libero id. Fermentum leo vel orci porta non. Euismod viverra nibh
+               cras pulvinar suspen.</p>
+         </div> -->
+         <div class="it-menu-mobile"></div>
+         <!-- <div class="itoffcanvas__info">
+            <h3 class="offcanva-title">Get In Touch</h3>
+            <div class="it-info-wrapper mb-20 d-flex align-items-center">
+               <div class="itoffcanvas__info-icon">
+                  <a href="#"><i class="fal fa-envelope"></i></a>
+               </div>
+               <div class="itoffcanvas__info-address">
+                  <span>Email</span>
+                  <a href="maito:marudhampharmacy@gmail.com
+
+">marudhampharmacy@gmail.com
+
+</a>
+               </div>
+            </div>
+            <div class="it-info-wrapper mb-20 d-flex align-items-center">
+               <div class="itoffcanvas__info-icon">
+                  <a href="#"><i class="fal fa-phone-alt"></i></a>
+               </div>
+               <div class="itoffcanvas__info-address">
+                  <span>Phone</span>
+                  <a href="tel:+917305489550">+91 73054 89550</a>
+               </div>
+            </div>
+            <div class="it-info-wrapper mb-20 d-flex align-items-center">
+               <div class="itoffcanvas__info-icon">
+                  <a href="#"><i class="fas fa-map-marker-alt"></i></a>
+               </div>
+               <div class="itoffcanvas__info-address">
+                  <span>Location</span>
+                  <a href="htits://www.google.com/maps/@37.4801311,22.8928877,3z" target="_blank">
+                    No 49A,CS Hospital,5th Street, Abirami Nagar Maduravoyal Chennai-600095 </a>
+               </div>
+            </div>
+         </div> -->
+      </div>
+   </div>
+   <div class="body-overlay"></div>
+   <!-- it-offcanvus-area-end -->   
+
+   <!-- modal-area-start -->
+  
+   <!-- modal-area-end -->
+
+   <header class="header-height">
+
+      <!-- header-area-start -->
+      <div id="header-sticky" class="it-header-2-area it-header-inner-style z-index-5">
+
+         <!-- logo -->
+         <div class="it-main-logo" >
+            <a href="index.html"><img src="assets/img/logo1.png" style="height: 100px;" alt="" ></a>
+         </div>
+         <!-- logo -->
+
+         <div class="it-header-2-pl">
+
+            <!-- header-top-area-start -->
+            <div class="it-header-2-top black-bg it-header-2-space-lr"
+               data-background="assets/img/header/header-top-bg.html">
+               <div class="container-fluid">
+                  <div class="row align-items-center">
+                     <div class="col-xl-8 col-lg-6 col-md-6">
+                        <div class="it-header-2-top-info">
+                           <ul>
+                              <li class="d-none d-xl-inline-block">
+                                 <i class="flaticon-phone-call"></i>
+                                 <a class="hover-anim white" href="tel:+917305489550">
+                                 +91 73054 89550
+                                 </a>
+                              </li>
+                              <li>
+                                 <i class="flaticon-letter"></i>
+                                 <a class="hover-anim white" href="mailto:marudhampharmacy@gmail.com">
+                                  marudhampharmacy@gmail.com
+                                 </a>
+                              </li>
+                              <!-- <li class="d-none d-xl-inline-block">
+                                 <i class="flaticon-location"></i>
+                                 <a class="hover-anim white"
+                                    href="#"
+                                    target="_blank">
+                                No 49A, CS Hospital, 5th Street, Abirami Nagar Maduravoyal Chennai-600095
+                                 </a>
+                              </li> -->
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-xl-4 col-lg-6 col-md-6 d-none d-md-block">
+                        <div class="it-header-2-top-right text-end">
+                           <div class="it-header-2-top-social">
+                              <a href="#"><i class="fab fa-facebook-f"></i></a>
+                              <a href="#"><i class="fab fa-instagram"></i></a>
+                             
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- header-top-area-end -->
+
+            <!-- header-area-start -->
+            <div class="it-header-2-area it-header-2-space-lr white-bg it-header-2-mob-space">
+               <div class="container-fluid">
+                  <div class="row align-items-center">
+                     <div class="col-xl-10 d-none d-xl-block">
+                        <div class="it-header-main-menu it-main-menu">
+                           <nav class="it-menu-content">
+                           <ul>
+                              <li class=" p-static">
+                                 <a href="index.html">Home</a>
+                                
+                              </li>
+                              <li class="">
+                                 <a href="shop.html">Products</a>
+                                 
+                              </li>
+                              <li><a href="about-us.html">About us</a></li>
+                              
+                              <li class="">
+                                 <a href="gallery.html">Gallery</a>
+                                
+                              </li>
+                              <li class="">
+                                 <a href="reviews.html">Reviews</a>
+                                 
+                              </li>
+                            
+                              <li><a href="contact.html">Contact</a></li>
+                           </ul>
+                           </nav>
+                        </div>
+                     </div>
+                     <div class="col-6 d-md-none">
+                        <div class="it-header-logo">
+                           <a href="index.html"><img src="assets/img/logo1.png" style="height: 100px;"></a>
+                        </div>
+                     </div>
+                     <div class="col-xl-2 col-lg-12 col-md-12  col-6">
+                        <!-- <div class="it-header-2-right-box d-flex align-items-center justify-content-end">
+                           <div class="it-header-2-right-search d-none d-sm-block">
+                              <button class="search-open-btn">
+                                 <i class="fa-sharp fa-light fa-magnifying-glass"></i>
+                              </button>
+                           </div> -->
+                           <!-- <div class="it-header-2-right-user d-none d-md-block">
+                              <a href="login.html">
+                                 <i class="fa-solid fa-user"></i>
+                              </a>
+                           </div> -->
+                           <div class="it-header-bar d-xl-none">
+                              <button class="it-menu-bar">
+                                 <span><i class="fa-regular fa-bars-sort"></i></span>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- header-top-area-start -->
+
+         </div>
+      </div>
+      <!-- header-area-end -->
+
+   </header>
+
+   <main>
+
+      <!-- breadcrumb-area-start -->
+      <div class="it-breadcrumb-area fix it-breadcrumb-bg p-relative" data-background="assets/img/breadcrumb/bg.jpg">
+         <div class="it-breadcrumb-shape-1">
+            <img src="assets/img/breadcrumb/shape-1.png" alt="">
+         </div>
+         <div class="container">
+            <div class="row ">
+               <div class="col-md-12">
+                  <div class="it-breadcrumb-content z-index-3">
+                     <div class="it-breadcrumb-title-box">
+                        <h3 class="it-breadcrumb-title">Tablets</h3>
+                     </div>
+                     <div class="it-breadcrumb-list-wrap">
+                        <div class="it-breadcrumb-list">
+                           <span><a href="index.html">Home</a></span> 
+                           <span class="dvdr">/</span>
+                           <span><a href="shop.html">Products</a></span> 
+                           <span class="dvdr">/</span>
+                           <i>Tablets</i>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- breadcrumb-area-end -->
+
+      <!-- Product-details area start  -->
+      <div class="it-shop-details__area pt-120 pb-40">
+         <div class="container">
+            <div class="it-shop-details__top-wrap mb-120">
+               <div class="row">
+                  <div class="col-xl-6 col-lg-6">
+                     <div class="it-shop-details__wrapper">
+                        <div class="it-shop-details__tab-content-box mb-20">
+                           <div class="tab-content" id="nav-tabContent">
+                              <div class="tab-pane fade show active" id="nav-one" role="tabpanel"
+                                 aria-labelledby="nav-one-tab">
+                                 <div class="it-shop-details__tab-big-img">
+                                    <img src="assets/img/tablet.png "
+                                     alt="">
+                                 </div>
+                              </div>
+                              <!-- <div class="tab-pane fade" id="nav-two" role="tabpanel" aria-labelledby="nav-two-tab">
+                                 <div class="it-shop-details__tab-big-img">
+                                    <img src="assets/img/shop/pro-1-2.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="tab-pane fade" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
+                                 <div class="it-shop-details__tab-big-img">
+                                    <img src="assets/img/shop/pro-1-3.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="tab-pane fade" id="nav-four" role="tabpanel" aria-labelledby="nav-four-tab">
+                                 <div class="it-shop-details__tab-big-img">
+                                    <img src="assets/img/shop/pro-1-4.png" alt="">
+                                 </div>
+                              </div> -->
+                           </div>
+                        </div>
+                        <!-- <div class="it-shop-details__tab-btn-box">
+                           <nav>
+                              <div class="nav nav-tab justify-content-center" id="nav-tab" role="tablist">
+                                 <button class="nav-links active" id="nav-one-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-one" type="button" role="tab" aria-controls="nav-one"
+                                    aria-selected="true">
+                                    <img src="assets/img/shop/pro-sm-1-1.png" alt="">
+                                 </button>
+                                 <button class="nav-links" id="nav-two-tab" data-bs-toggle="tab" data-bs-target="#nav-two"
+                                    type="button" role="tab" aria-controls="nav-two" aria-selected="false">
+                                    <img src="assets/img/shop/pro-sm-1-2.png" alt="">
+                                 </button>
+                                 <button class="nav-links" id="nav-three-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-three" type="button" role="tab" aria-controls="nav-three"
+                                    aria-selected="false">
+                                    <img src="assets/img/shop/pro-sm-1-3.png" alt="">
+                                 </button>
+                                 <button class="nav-links" id="nav-four-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-four" type="button" role="tab" aria-controls="nav-four"
+                                    aria-selected="false">
+                                    <img src="assets/img/shop/pro-sm-1-4.png" alt="">
+                                 </button>
+                              </div>
+                           </nav>
+                        </div> -->
+                     </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6">
+                     <div class="it-shop-details__right-wrap">
+                        <h3 class="it-shop-details__title-sm mb-30">Tablets</h3>
+                        <!-- <div class="it-shop-details__price d-flex align-items-center">
+                           <del>$150.00 </del>
+                           <span>$100.00</span>
+                           <div class="it-shop-details__ratting">
+                              <i class="flaticon-star"></i>
+                              <span>(25 Customer reviews)</span>
+                           </div>
+                        </div>                        -->
+                        <div class="it-shop-details__quantity-wrap">
+                           
+                          <div class="it-shop-details__text pb-10">
+   <p>
+      Choose from a wide range of high-quality tablets designed to support your health and well-being. 
+      We provide trusted and effective medicines suitable for different health needs.
+   </p>
+
+   <ul class="product-points">
+      <li>✔ Tablets for all ailments</li>
+      <li>✔ Trusted quality assured</li>
+      <li>✔ Affordable for all budgets</li>
+      <li>✔ Safe, reliable and effective medicines</li>
+      <li>✔ Recommended by healthcare professionals</li>
+      <li>✔ Suitable for daily health management</li>
+   </ul>
+</div>
+                           <!-- <div class="it-shop-details__icon mb-40">
+                              <a href="#"><i class="fa-light fa-heart"></i></a>
+                              <a href="#"><i class="fa-sharp fa-light fa-arrows-repeat"></i></a>
+                           </div> -->
+                           <div class="it-shop-details__Category pb-35">
+                              <!-- <span><i>SKU:</i> medical kit-12</span> -->
+                              <span><i>Categories: </i> Pharmaceutical Products, Tablets</span>
+                           </div>
+   <div class="it-shop-details__quantity-box d-flex align-items-center mb-30">   
+                              <!-- <div class="it-shop-details__quantity">
+                                 <div class="cart-minus"><i class="fal fa-minus"></i></div>
+                                 <input type="text" value="1">
+                                 <div class="cart-plus"><i class="fal fa-plus"></i></div>
+                              </div> -->
+                            <div class="it-shop-details__btn">
+   <a class="it-btn-theme enquiry-btn" href="javascript:void(0);" data-medicine="">
+      <span class="btn-wrap">
+         <span class="text-one">Shop Now</span>
+         <span class="text-two">Shop Now</span>
+      </span>
+   </a>
+</div>
+
+<!-- Enquiry Popup -->
+<div class="enquiry-popup" id="enquiryPopup">
+   <div class="enquiry-popup-overlay"></div>
+   <div class="enquiry-popup-box">
+      <button class="enquiry-close" id="closePopup">&times;</button>
+      <h3>Medicine Enquiry Form</h3>
+
+      <form id="whatsappEnquiryForm" enctype="multipart/form-data">
+         <div class="form-group">
+            <input type="text" id="patientName" placeholder="Patient Name" required>
+         </div>
+
+         <div class="form-group">
+            <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
+         </div>
+
+         
+
+         <div class="form-group">
+            <input type="text" id="medicineName" placeholder="Medicine Name" required>
+         </div>
+
+         <div class="form-group">
+            <textarea id="address" placeholder="Address" rows="3" required></textarea>
+         </div>
+
+         <!-- Prescription Upload -->
+         <div class="form-group">
+            <label for="prescriptionImage" class="upload-label">Upload Prescription</label>
+            <input type="file" id="prescriptionImage" accept="image/*" required>
+            <small id="fileNameDisplay" class="file-note">No file selected</small>
+         </div>
+
+         <!-- Image Preview -->
+         <div class="form-group preview-wrap" id="previewWrap" style="display:none;">
+            <img id="imagePreview" src="" alt="Prescription Preview">
+         </div>
+
+         <div class="form-group text-center">
+            <button type="submit" class="it-btn-theme submit-enquiry-btn">
+               <span class="btn-wrap">
+                  <span class="text-one">Submit</span>
+                  <span class="text-two">Submit</span>
+               </span>
+            </button>
+         </div>
+      </form>
+   </div>
+</div>
+                           </div>
+                           <div class="it-shop-details__social">
+                              <a href="#"><i class="flaticon-facebook-app-symbol"></i></a>
+                              
+                              <a href="#"><i class="flaticon-instagram"></i></a>
+                             
+                           </div>
+                        </div>                    
+                     </div>
+                  </div>
+               </div>
+            </div>
+              
+      <!-- Product-details area end  -->
+
+      <!-- shop-area-start -->
+      <!-- <div class="it-shop-area fix pb-90">
+         <div class="container">
+            <div class="it-shop-title-wrap mb-65">
+               <div class="row align-items-end">
+                  <div class="col-xl-6 col-md-6">
+                     <div class="it-shop-title-box">
+                        <h3 class="it-section-title">Related Products</h3>
+                     </div>
+                  </div>
+                  <div class="col-xl-6 col-md-6">
+                     <div class="it-shop-arrow-box text-md-end">
+                        <button class="slider-prev">
+                           <span>
+                              <i class="fa-regular fa-angle-left"></i>
+                           </span>
+                        </button>
+                        <button class="slider-next">
+                           <span>
+                              <i class="fa-regular fa-angle-right"></i>
+                           </span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="it-shop-slider-wrap">
+                     <div class="swiper-container it-shop-active">
+                        <div class="swiper-wrapper">
+                           <div class="swiper-slide">
+                              <div class="it-shop-item p-relative">
+                                 <div class="it-shop-thumb fix p-relative">
+                                    <img src="assets/img/shop/product-1-1.png" alt="">
+                                    <div class="it-shop-badge theme">
+                                       <span>-10%</span>
+                                    </div>
+                                    <div class="it-shop-action-2 it-shop-action-blackStyle">
+                                       <div class="it-shop-action-item-2 d-flex flex-column">
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-cart-btn">
+                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M3.34706 4.53799L3.85961 10.6239C3.89701 11.0923 4.28036 11.4436 4.74871 11.4436H4.75212H14.0265H14.0282C14.4711 11.4436 14.8493 11.1144 14.9122 10.6774L15.7197 5.11162C15.7384 4.97924 15.7053 4.84687 15.6245 4.73995C15.5446 4.63218 15.4273 4.5626 15.2947 4.54393C15.1171 4.55072 7.74498 4.54054 3.34706 4.53799ZM4.74722 12.7162C3.62777 12.7162 2.68001 11.8438 2.58906 10.728L1.81046 1.4837L0.529505 1.26308C0.181854 1.20198 -0.0501969 0.873587 0.00930333 0.526523C0.0705036 0.17946 0.406255 -0.0462578 0.746256 0.00805037L2.51426 0.313534C2.79901 0.363599 3.01576 0.5995 3.04042 0.888012L3.24017 3.26484C15.3748 3.26993 15.4139 3.27587 15.4726 3.28266C15.946 3.3514 16.3625 3.59833 16.6464 3.97849C16.9303 4.35779 17.0493 4.82535 16.9813 5.29376L16.1747 10.8586C16.0225 11.9177 15.1011 12.7162 14.0301 12.7162H14.0259H4.75402H4.74722Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M12.6629 7.67446H10.3067C9.95394 7.67446 9.66919 7.38934 9.66919 7.03804C9.66919 6.68673 9.95394 6.40161 10.3067 6.40161H12.6629C13.0148 6.40161 13.3004 6.68673 13.3004 7.03804C13.3004 7.38934 13.0148 7.67446 12.6629 7.67446Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38171 15.0212C4.63756 15.0212 4.84411 15.2278 4.84411 15.4836C4.84411 15.7395 4.63756 15.9469 4.38171 15.9469C4.12501 15.9469 3.91846 15.7395 3.91846 15.4836C3.91846 15.2278 4.12501 15.0212 4.38171 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38082 15.3091C4.28477 15.3091 4.20657 15.3873 4.20657 15.4833C4.20657 15.6763 4.55592 15.6763 4.55592 15.4833C4.55592 15.3873 4.47687 15.3091 4.38082 15.3091ZM4.38067 16.5815C3.77376 16.5815 3.28076 16.0884 3.28076 15.4826C3.28076 14.8767 3.77376 14.3845 4.38067 14.3845C4.98757 14.3845 5.48142 14.8767 5.48142 15.4826C5.48142 16.0884 4.98757 16.5815 4.38067 16.5815Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9701 15.0212C14.2259 15.0212 14.4333 15.2278 14.4333 15.4836C14.4333 15.7395 14.2259 15.9469 13.9701 15.9469C13.7134 15.9469 13.5068 15.7395 13.5068 15.4836C13.5068 15.2278 13.7134 15.0212 13.9701 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9692 15.3092C13.874 15.3092 13.7958 15.3874 13.7958 15.4835C13.7966 15.6781 14.1451 15.6764 14.1443 15.4835C14.1443 15.3874 14.0652 15.3092 13.9692 15.3092ZM13.969 16.5815C13.3621 16.5815 12.8691 16.0884 12.8691 15.4826C12.8691 14.8767 13.3621 14.3845 13.969 14.3845C14.5768 14.3845 15.0706 14.8767 15.0706 15.4826C15.0706 16.0884 14.5768 16.5815 13.969 16.5815Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add to Cart</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-quick-view-btn"
+                                             data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
+                                             <svg width="18" height="15" viewBox="0 0 18 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M8.99948 5.06828C7.80247 5.06828 6.82956 6.04044 6.82956 7.23542C6.82956 8.42951 7.80247 9.40077 8.99948 9.40077C10.1965 9.40077 11.1703 8.42951 11.1703 7.23542C11.1703 6.04044 10.1965 5.06828 8.99948 5.06828ZM8.99942 10.7482C7.0581 10.7482 5.47949 9.17221 5.47949 7.23508C5.47949 5.29705 7.0581 3.72021 8.99942 3.72021C10.9407 3.72021 12.5202 5.29705 12.5202 7.23508C12.5202 9.17221 10.9407 10.7482 8.99942 10.7482Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.41273 7.2346C3.08674 10.9265 5.90646 13.1215 8.99978 13.1224C12.0931 13.1215 14.9128 10.9265 16.5868 7.2346C14.9128 3.54363 12.0931 1.34863 8.99978 1.34773C5.90736 1.34863 3.08674 3.54363 1.41273 7.2346ZM9.00164 14.4703H8.99804H8.99714C5.27471 14.4676 1.93209 11.8629 0.0546754 7.50073C-0.0182251 7.33091 -0.0182251 7.13864 0.0546754 6.96883C1.93209 2.60759 5.27561 0.00288103 8.99714 0.000185582C8.99894 -0.000712902 8.99894 -0.000712902 8.99984 0.000185582C9.00164 -0.000712902 9.00164 -0.000712902 9.00254 0.000185582C12.725 0.00288103 16.0676 2.60759 17.945 6.96883C18.0188 7.13864 18.0188 7.33091 17.945 7.50073C16.0685 11.8629 12.725 14.4676 9.00254 14.4703H9.00164Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Quick View</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-wishlist-btn">
+                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M14.203 6.67473C13.8627 6.67473 13.5743 6.41474 13.5462 6.07159C13.4882 5.35202 13.0046 4.7445 12.3162 4.52302C11.9689 4.41097 11.779 4.04068 11.8906 3.69666C12.0041 3.35175 12.3724 3.16442 12.7206 3.27297C13.919 3.65901 14.7586 4.71561 14.8615 5.96479C14.8905 6.32632 14.6206 6.64322 14.2575 6.6721C14.239 6.67385 14.2214 6.67473 14.203 6.67473Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Wishlist</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-compare-btn">
+                                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.4144 6.16828L14 3.58412L11.4144 1" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M1.48883 3.58374L14 3.58374" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M14 10.9058H1.48883" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Compare</span>
+                                          </button>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="it-shop-content text-center">
+                                    <h3 class="it-shop-title">
+                                       <a href="shop-details.html" class="hover-anim">Thermometer</a>
+                                    </h3>
+                                    <div class="it-shop-price">
+                                       <span class="it-shop-ammount">£$150.00 <del>$100.00</del></span>
+                                       <span>
+                                          <i class="fa-solid fa-star"></i>
+                                          4.5k
+                                       </span>
+                                    </div>
+                                    <div class="it-shop-btn">
+                                       <a class="shop-btn it-btn-theme" href="cart.html">
+                                          <span class="btn-wrap">
+                                             <span class="text-one">
+                                                Shop Now
+                                             </span>
+                                             <span class="text-two">
+                                                Shop Now
+                                             </span>
+                                          </span>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="swiper-slide">
+                              <div class="it-shop-item p-relative">
+                                 <div class="it-shop-thumb fix p-relative">
+                                    <img src="assets/img/shop/product-1-2.png" alt="">
+                                    <div class="it-shop-badge theme">
+                                       <span>-15%</span>
+                                    </div>
+                                    <div class="it-shop-action-2 it-shop-action-blackStyle">
+                                       <div class="it-shop-action-item-2 d-flex flex-column">
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-cart-btn">
+                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M3.34706 4.53799L3.85961 10.6239C3.89701 11.0923 4.28036 11.4436 4.74871 11.4436H4.75212H14.0265H14.0282C14.4711 11.4436 14.8493 11.1144 14.9122 10.6774L15.7197 5.11162C15.7384 4.97924 15.7053 4.84687 15.6245 4.73995C15.5446 4.63218 15.4273 4.5626 15.2947 4.54393C15.1171 4.55072 7.74498 4.54054 3.34706 4.53799ZM4.74722 12.7162C3.62777 12.7162 2.68001 11.8438 2.58906 10.728L1.81046 1.4837L0.529505 1.26308C0.181854 1.20198 -0.0501969 0.873587 0.00930333 0.526523C0.0705036 0.17946 0.406255 -0.0462578 0.746256 0.00805037L2.51426 0.313534C2.79901 0.363599 3.01576 0.5995 3.04042 0.888012L3.24017 3.26484C15.3748 3.26993 15.4139 3.27587 15.4726 3.28266C15.946 3.3514 16.3625 3.59833 16.6464 3.97849C16.9303 4.35779 17.0493 4.82535 16.9813 5.29376L16.1747 10.8586C16.0225 11.9177 15.1011 12.7162 14.0301 12.7162H14.0259H4.75402H4.74722Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M12.6629 7.67446H10.3067C9.95394 7.67446 9.66919 7.38934 9.66919 7.03804C9.66919 6.68673 9.95394 6.40161 10.3067 6.40161H12.6629C13.0148 6.40161 13.3004 6.68673 13.3004 7.03804C13.3004 7.38934 13.0148 7.67446 12.6629 7.67446Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38171 15.0212C4.63756 15.0212 4.84411 15.2278 4.84411 15.4836C4.84411 15.7395 4.63756 15.9469 4.38171 15.9469C4.12501 15.9469 3.91846 15.7395 3.91846 15.4836C3.91846 15.2278 4.12501 15.0212 4.38171 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38082 15.3091C4.28477 15.3091 4.20657 15.3873 4.20657 15.4833C4.20657 15.6763 4.55592 15.6763 4.55592 15.4833C4.55592 15.3873 4.47687 15.3091 4.38082 15.3091ZM4.38067 16.5815C3.77376 16.5815 3.28076 16.0884 3.28076 15.4826C3.28076 14.8767 3.77376 14.3845 4.38067 14.3845C4.98757 14.3845 5.48142 14.8767 5.48142 15.4826C5.48142 16.0884 4.98757 16.5815 4.38067 16.5815Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9701 15.0212C14.2259 15.0212 14.4333 15.2278 14.4333 15.4836C14.4333 15.7395 14.2259 15.9469 13.9701 15.9469C13.7134 15.9469 13.5068 15.7395 13.5068 15.4836C13.5068 15.2278 13.7134 15.0212 13.9701 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9692 15.3092C13.874 15.3092 13.7958 15.3874 13.7958 15.4835C13.7966 15.6781 14.1451 15.6764 14.1443 15.4835C14.1443 15.3874 14.0652 15.3092 13.9692 15.3092ZM13.969 16.5815C13.3621 16.5815 12.8691 16.0884 12.8691 15.4826C12.8691 14.8767 13.3621 14.3845 13.969 14.3845C14.5768 14.3845 15.0706 14.8767 15.0706 15.4826C15.0706 16.0884 14.5768 16.5815 13.969 16.5815Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add to Cart</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-quick-view-btn"
+                                             data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
+                                             <svg width="18" height="15" viewBox="0 0 18 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M8.99948 5.06828C7.80247 5.06828 6.82956 6.04044 6.82956 7.23542C6.82956 8.42951 7.80247 9.40077 8.99948 9.40077C10.1965 9.40077 11.1703 8.42951 11.1703 7.23542C11.1703 6.04044 10.1965 5.06828 8.99948 5.06828ZM8.99942 10.7482C7.0581 10.7482 5.47949 9.17221 5.47949 7.23508C5.47949 5.29705 7.0581 3.72021 8.99942 3.72021C10.9407 3.72021 12.5202 5.29705 12.5202 7.23508C12.5202 9.17221 10.9407 10.7482 8.99942 10.7482Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.41273 7.2346C3.08674 10.9265 5.90646 13.1215 8.99978 13.1224C12.0931 13.1215 14.9128 10.9265 16.5868 7.2346C14.9128 3.54363 12.0931 1.34863 8.99978 1.34773C5.90736 1.34863 3.08674 3.54363 1.41273 7.2346ZM9.00164 14.4703H8.99804H8.99714C5.27471 14.4676 1.93209 11.8629 0.0546754 7.50073C-0.0182251 7.33091 -0.0182251 7.13864 0.0546754 6.96883C1.93209 2.60759 5.27561 0.00288103 8.99714 0.000185582C8.99894 -0.000712902 8.99894 -0.000712902 8.99984 0.000185582C9.00164 -0.000712902 9.00164 -0.000712902 9.00254 0.000185582C12.725 0.00288103 16.0676 2.60759 17.945 6.96883C18.0188 7.13864 18.0188 7.33091 17.945 7.50073C16.0685 11.8629 12.725 14.4676 9.00254 14.4703H9.00164Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Quick View</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-wishlist-btn">
+                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M14.203 6.67473C13.8627 6.67473 13.5743 6.41474 13.5462 6.07159C13.4882 5.35202 13.0046 4.7445 12.3162 4.52302C11.9689 4.41097 11.779 4.04068 11.8906 3.69666C12.0041 3.35175 12.3724 3.16442 12.7206 3.27297C13.919 3.65901 14.7586 4.71561 14.8615 5.96479C14.8905 6.32632 14.6206 6.64322 14.2575 6.6721C14.239 6.67385 14.2214 6.67473 14.203 6.67473Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Wishlist</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-compare-btn">
+                                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.4144 6.16828L14 3.58412L11.4144 1" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M1.48883 3.58374L14 3.58374" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M14 10.9058H1.48883" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Compare</span>
+                                          </button>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="it-shop-content text-center">
+                                    <h3 class="it-shop-title">
+                                       <a href="shop-details.html" class="hover-anim">Cotton Mask</a>
+                                    </h3>
+                                    <div class="it-shop-price">
+                                       <span class="it-shop-ammount">£$150.00 <del>$100.00</del></span>
+                                       <span>
+                                          <i class="fa-solid fa-star"></i>
+                                          4.5k
+                                       </span>
+                                    </div>
+                                    <div class="it-shop-btn">
+                                       <a class="shop-btn it-btn-theme" href="cart.html">
+                                          <span class="btn-wrap">
+                                             <span class="text-one">
+                                                Shop Now
+                                             </span>
+                                             <span class="text-two">
+                                                Shop Now
+                                             </span>
+                                          </span>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="swiper-slide">
+                              <div class="it-shop-item p-relative">
+                                 <div class="it-shop-thumb fix p-relative">
+                                    <img src="assets/img/shop/product-1-3.png" alt="">
+                                    <div class="it-shop-badge theme">
+                                       <span>New</span>
+                                    </div>
+                                    <div class="it-shop-action-2 it-shop-action-blackStyle">
+                                       <div class="it-shop-action-item-2 d-flex flex-column">
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-cart-btn">
+                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M3.34706 4.53799L3.85961 10.6239C3.89701 11.0923 4.28036 11.4436 4.74871 11.4436H4.75212H14.0265H14.0282C14.4711 11.4436 14.8493 11.1144 14.9122 10.6774L15.7197 5.11162C15.7384 4.97924 15.7053 4.84687 15.6245 4.73995C15.5446 4.63218 15.4273 4.5626 15.2947 4.54393C15.1171 4.55072 7.74498 4.54054 3.34706 4.53799ZM4.74722 12.7162C3.62777 12.7162 2.68001 11.8438 2.58906 10.728L1.81046 1.4837L0.529505 1.26308C0.181854 1.20198 -0.0501969 0.873587 0.00930333 0.526523C0.0705036 0.17946 0.406255 -0.0462578 0.746256 0.00805037L2.51426 0.313534C2.79901 0.363599 3.01576 0.5995 3.04042 0.888012L3.24017 3.26484C15.3748 3.26993 15.4139 3.27587 15.4726 3.28266C15.946 3.3514 16.3625 3.59833 16.6464 3.97849C16.9303 4.35779 17.0493 4.82535 16.9813 5.29376L16.1747 10.8586C16.0225 11.9177 15.1011 12.7162 14.0301 12.7162H14.0259H4.75402H4.74722Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M12.6629 7.67446H10.3067C9.95394 7.67446 9.66919 7.38934 9.66919 7.03804C9.66919 6.68673 9.95394 6.40161 10.3067 6.40161H12.6629C13.0148 6.40161 13.3004 6.68673 13.3004 7.03804C13.3004 7.38934 13.0148 7.67446 12.6629 7.67446Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38171 15.0212C4.63756 15.0212 4.84411 15.2278 4.84411 15.4836C4.84411 15.7395 4.63756 15.9469 4.38171 15.9469C4.12501 15.9469 3.91846 15.7395 3.91846 15.4836C3.91846 15.2278 4.12501 15.0212 4.38171 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38082 15.3091C4.28477 15.3091 4.20657 15.3873 4.20657 15.4833C4.20657 15.6763 4.55592 15.6763 4.55592 15.4833C4.55592 15.3873 4.47687 15.3091 4.38082 15.3091ZM4.38067 16.5815C3.77376 16.5815 3.28076 16.0884 3.28076 15.4826C3.28076 14.8767 3.77376 14.3845 4.38067 14.3845C4.98757 14.3845 5.48142 14.8767 5.48142 15.4826C5.48142 16.0884 4.98757 16.5815 4.38067 16.5815Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9701 15.0212C14.2259 15.0212 14.4333 15.2278 14.4333 15.4836C14.4333 15.7395 14.2259 15.9469 13.9701 15.9469C13.7134 15.9469 13.5068 15.7395 13.5068 15.4836C13.5068 15.2278 13.7134 15.0212 13.9701 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9692 15.3092C13.874 15.3092 13.7958 15.3874 13.7958 15.4835C13.7966 15.6781 14.1451 15.6764 14.1443 15.4835C14.1443 15.3874 14.0652 15.3092 13.9692 15.3092ZM13.969 16.5815C13.3621 16.5815 12.8691 16.0884 12.8691 15.4826C12.8691 14.8767 13.3621 14.3845 13.969 14.3845C14.5768 14.3845 15.0706 14.8767 15.0706 15.4826C15.0706 16.0884 14.5768 16.5815 13.969 16.5815Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add to Cart</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-quick-view-btn"
+                                             data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
+                                             <svg width="18" height="15" viewBox="0 0 18 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M8.99948 5.06828C7.80247 5.06828 6.82956 6.04044 6.82956 7.23542C6.82956 8.42951 7.80247 9.40077 8.99948 9.40077C10.1965 9.40077 11.1703 8.42951 11.1703 7.23542C11.1703 6.04044 10.1965 5.06828 8.99948 5.06828ZM8.99942 10.7482C7.0581 10.7482 5.47949 9.17221 5.47949 7.23508C5.47949 5.29705 7.0581 3.72021 8.99942 3.72021C10.9407 3.72021 12.5202 5.29705 12.5202 7.23508C12.5202 9.17221 10.9407 10.7482 8.99942 10.7482Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.41273 7.2346C3.08674 10.9265 5.90646 13.1215 8.99978 13.1224C12.0931 13.1215 14.9128 10.9265 16.5868 7.2346C14.9128 3.54363 12.0931 1.34863 8.99978 1.34773C5.90736 1.34863 3.08674 3.54363 1.41273 7.2346ZM9.00164 14.4703H8.99804H8.99714C5.27471 14.4676 1.93209 11.8629 0.0546754 7.50073C-0.0182251 7.33091 -0.0182251 7.13864 0.0546754 6.96883C1.93209 2.60759 5.27561 0.00288103 8.99714 0.000185582C8.99894 -0.000712902 8.99894 -0.000712902 8.99984 0.000185582C9.00164 -0.000712902 9.00164 -0.000712902 9.00254 0.000185582C12.725 0.00288103 16.0676 2.60759 17.945 6.96883C18.0188 7.13864 18.0188 7.33091 17.945 7.50073C16.0685 11.8629 12.725 14.4676 9.00254 14.4703H9.00164Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Quick View</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-wishlist-btn">
+                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M14.203 6.67473C13.8627 6.67473 13.5743 6.41474 13.5462 6.07159C13.4882 5.35202 13.0046 4.7445 12.3162 4.52302C11.9689 4.41097 11.779 4.04068 11.8906 3.69666C12.0041 3.35175 12.3724 3.16442 12.7206 3.27297C13.919 3.65901 14.7586 4.71561 14.8615 5.96479C14.8905 6.32632 14.6206 6.64322 14.2575 6.6721C14.239 6.67385 14.2214 6.67473 14.203 6.67473Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Wishlist</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-compare-btn">
+                                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.4144 6.16828L14 3.58412L11.4144 1" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M1.48883 3.58374L14 3.58374" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M14 10.9058H1.48883" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Compare</span>
+                                          </button>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="it-shop-content text-center">
+                                    <h3 class="it-shop-title">
+                                       <a href="shop-details.html" class="hover-anim">Optical Microscope</a>
+                                    </h3>
+                                    <div class="it-shop-price">
+                                       <span class="it-shop-ammount">£$150.00 <del>$100.00</del></span>
+                                       <span>
+                                          <i class="fa-solid fa-star"></i>
+                                          4.5k
+                                       </span>
+                                    </div>
+                                    <div class="it-shop-btn">
+                                       <a class="shop-btn it-btn-theme" href="cart.html">
+                                          <span class="btn-wrap">
+                                             <span class="text-one">
+                                                Shop Now
+                                             </span>
+                                             <span class="text-two">
+                                                Shop Now
+                                             </span>
+                                          </span>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="swiper-slide">
+                              <div class="it-shop-item p-relative">
+                                 <div class="it-shop-thumb fix p-relative">
+                                    <img src="assets/img/shop/product-1-4.png" alt="">
+                                    <div class="it-shop-badge theme">
+                                       <span>-15%</span>
+                                    </div>
+                                    <div class="it-shop-action-2 it-shop-action-blackStyle">
+                                       <div class="it-shop-action-item-2 d-flex flex-column">
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-cart-btn">
+                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M3.34706 4.53799L3.85961 10.6239C3.89701 11.0923 4.28036 11.4436 4.74871 11.4436H4.75212H14.0265H14.0282C14.4711 11.4436 14.8493 11.1144 14.9122 10.6774L15.7197 5.11162C15.7384 4.97924 15.7053 4.84687 15.6245 4.73995C15.5446 4.63218 15.4273 4.5626 15.2947 4.54393C15.1171 4.55072 7.74498 4.54054 3.34706 4.53799ZM4.74722 12.7162C3.62777 12.7162 2.68001 11.8438 2.58906 10.728L1.81046 1.4837L0.529505 1.26308C0.181854 1.20198 -0.0501969 0.873587 0.00930333 0.526523C0.0705036 0.17946 0.406255 -0.0462578 0.746256 0.00805037L2.51426 0.313534C2.79901 0.363599 3.01576 0.5995 3.04042 0.888012L3.24017 3.26484C15.3748 3.26993 15.4139 3.27587 15.4726 3.28266C15.946 3.3514 16.3625 3.59833 16.6464 3.97849C16.9303 4.35779 17.0493 4.82535 16.9813 5.29376L16.1747 10.8586C16.0225 11.9177 15.1011 12.7162 14.0301 12.7162H14.0259H4.75402H4.74722Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M12.6629 7.67446H10.3067C9.95394 7.67446 9.66919 7.38934 9.66919 7.03804C9.66919 6.68673 9.95394 6.40161 10.3067 6.40161H12.6629C13.0148 6.40161 13.3004 6.68673 13.3004 7.03804C13.3004 7.38934 13.0148 7.67446 12.6629 7.67446Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38171 15.0212C4.63756 15.0212 4.84411 15.2278 4.84411 15.4836C4.84411 15.7395 4.63756 15.9469 4.38171 15.9469C4.12501 15.9469 3.91846 15.7395 3.91846 15.4836C3.91846 15.2278 4.12501 15.0212 4.38171 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M4.38082 15.3091C4.28477 15.3091 4.20657 15.3873 4.20657 15.4833C4.20657 15.6763 4.55592 15.6763 4.55592 15.4833C4.55592 15.3873 4.47687 15.3091 4.38082 15.3091ZM4.38067 16.5815C3.77376 16.5815 3.28076 16.0884 3.28076 15.4826C3.28076 14.8767 3.77376 14.3845 4.38067 14.3845C4.98757 14.3845 5.48142 14.8767 5.48142 15.4826C5.48142 16.0884 4.98757 16.5815 4.38067 16.5815Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9701 15.0212C14.2259 15.0212 14.4333 15.2278 14.4333 15.4836C14.4333 15.7395 14.2259 15.9469 13.9701 15.9469C13.7134 15.9469 13.5068 15.7395 13.5068 15.4836C13.5068 15.2278 13.7134 15.0212 13.9701 15.0212Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M13.9692 15.3092C13.874 15.3092 13.7958 15.3874 13.7958 15.4835C13.7966 15.6781 14.1451 15.6764 14.1443 15.4835C14.1443 15.3874 14.0652 15.3092 13.9692 15.3092ZM13.969 16.5815C13.3621 16.5815 12.8691 16.0884 12.8691 15.4826C12.8691 14.8767 13.3621 14.3845 13.969 14.3845C14.5768 14.3845 15.0706 14.8767 15.0706 15.4826C15.0706 16.0884 14.5768 16.5815 13.969 16.5815Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add to Cart</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-quick-view-btn"
+                                             data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
+                                             <svg width="18" height="15" viewBox="0 0 18 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M8.99948 5.06828C7.80247 5.06828 6.82956 6.04044 6.82956 7.23542C6.82956 8.42951 7.80247 9.40077 8.99948 9.40077C10.1965 9.40077 11.1703 8.42951 11.1703 7.23542C11.1703 6.04044 10.1965 5.06828 8.99948 5.06828ZM8.99942 10.7482C7.0581 10.7482 5.47949 9.17221 5.47949 7.23508C5.47949 5.29705 7.0581 3.72021 8.99942 3.72021C10.9407 3.72021 12.5202 5.29705 12.5202 7.23508C12.5202 9.17221 10.9407 10.7482 8.99942 10.7482Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.41273 7.2346C3.08674 10.9265 5.90646 13.1215 8.99978 13.1224C12.0931 13.1215 14.9128 10.9265 16.5868 7.2346C14.9128 3.54363 12.0931 1.34863 8.99978 1.34773C5.90736 1.34863 3.08674 3.54363 1.41273 7.2346ZM9.00164 14.4703H8.99804H8.99714C5.27471 14.4676 1.93209 11.8629 0.0546754 7.50073C-0.0182251 7.33091 -0.0182251 7.13864 0.0546754 6.96883C1.93209 2.60759 5.27561 0.00288103 8.99714 0.000185582C8.99894 -0.000712902 8.99894 -0.000712902 8.99984 0.000185582C9.00164 -0.000712902 9.00164 -0.000712902 9.00254 0.000185582C12.725 0.00288103 16.0676 2.60759 17.945 6.96883C18.0188 7.13864 18.0188 7.33091 17.945 7.50073C16.0685 11.8629 12.725 14.4676 9.00254 14.4703H9.00164Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Quick View</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-wishlist-btn">
+                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                   fill="currentColor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                   d="M14.203 6.67473C13.8627 6.67473 13.5743 6.41474 13.5462 6.07159C13.4882 5.35202 13.0046 4.7445 12.3162 4.52302C11.9689 4.41097 11.779 4.04068 11.8906 3.69666C12.0041 3.35175 12.3724 3.16442 12.7206 3.27297C13.919 3.65901 14.7586 4.71561 14.8615 5.96479C14.8905 6.32632 14.6206 6.64322 14.2575 6.6721C14.239 6.67385 14.2214 6.67473 14.203 6.67473Z"
+                                                   fill="currentColor" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Wishlist</span>
+                                          </button>
+                                          <button type="button" class="it-shop-action-btn-2 it-shop-add-to-compare-btn">
+                                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.4144 6.16828L14 3.58412L11.4144 1" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M1.48883 3.58374L14 3.58374" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898" stroke="currentColor"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M14 10.9058H1.48883" stroke="currentColor" stroke-width="1.5"
+                                                   stroke-linecap="round" stroke-linejoin="round" />
+                                             </svg>
+                                             <span class="it-shop-tooltip it-shop-tooltip-right">Add To Compare</span>
+                                          </button>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="it-shop-content text-center">
+                                    <h3 class="it-shop-title">
+                                       <a href="shop-details.html" class="hover-anim">Blood Test Tub</a>
+                                    </h3>
+                                    <div class="it-shop-price">
+                                       <span class="it-shop-ammount">£$150.00 <del>$100.00</del></span>
+                                       <span>
+                                          <i class="fa-solid fa-star"></i>
+                                          4.5k
+                                       </span>
+                                    </div>
+                                    <div class="it-shop-btn">
+                                       <a class="shop-btn it-btn-theme" href="cart.html">
+                                          <span class="btn-wrap">
+                                             <span class="text-one">
+                                                Shop Now
+                                             </span>
+                                             <span class="text-two">
+                                                Shop Now
+                                             </span>
+                                          </span>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <!-- shop-area-end -->
+
+
+   </main>
+
+   <footer>
+
+      <!-- footer-area-start -->
+      <div class="it-footer-area black-bg fix z-index p-relative pt-130 pb-70">
+         <div class="it-footer-shape-1">
+            <img src="assets/img/footer/shape-1-1.png" alt="">
+         </div>
+         <div class="it-footer-shape-2 d-none d-xl-block">
+            <img src="assets/img/footer/shape-1-2.png" alt="">
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-10 mb-50 wow itfadeUp" data-wow-duration=".9s"
+                  data-wow-delay=".3s">
+                  <div class="it-footer-widget footer-col-1">
+                     <div class="it-footer-logo">
+                        <a href="index.html">
+                           <!-- <img src="assets/img/logo/logo-blue.png" alt=""> -->
+                             <h4 class="it-footer-widget-title">About Us</h4>
+
+                        </a>
+                     </div>
+                     <div class="it-footer-text pb-15">
+                      <p>
+   Marudham Pharmacy is dedicated to providing high-quality and trusted healthcare products for every need. 
+   We offer a wide range of medicines and wellness essentials, ensuring reliable service, affordable prices, 
+   and a commitment to your health and well-being.
+</p>
+                        
+                     </div>
+                     <!-- <div class="it-footer-social">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                     </div> -->
+                  </div>
+               </div>
+               <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-7 mb-50 wow itfadeUp" data-wow-duration=".9s"
+                  data-wow-delay=".5s">
+                  <div class="it-footer-widget footer-col-2">
+                     <h4 class="it-footer-widget-title">Quick Links:</h4>
+                     <div class="it-footer-list">
+                        <ul>
+                           <li><a href="index.html"><i class="fa-regular fa-angle-right"></i>Home</a></li>
+                           <li><a href="about-us.html"><i class="fa-regular fa-angle-right"></i>About</a></li>
+                           <li><a href="gallery.html"><i class="fa-regular fa-angle-right"></i>Gallery</a></li>
+                           <li><a href="reviews.html"><i class="fa-regular fa-angle-right"></i>Reviews</a></li>
+                           <li><a href="contact.html"><i class="fa-regular fa-angle-right"></i>Contact</a></li>
+                           
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xxl-3 col-xl-2 col-lg-3 col-md-6 col-sm-5 mb-50 wow itfadeUp" data-wow-duration=".9s"
+                  data-wow-delay=".7s">
+                  <div class="it-footer-widget footer-col-3">
+                     <h4 class="it-footer-widget-title">Our Products</h4>
+                     <div class="it-footer-list">
+                        <ul>
+                           <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i>Pharmaceutical Products</a></li>
+                           <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i> Injections and Vaccines</a></li>
+                           <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i> Surgical and Orthopedic Supplies</a></li>
+                          
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-50 wow itfadeUp" data-wow-duration=".9s"
+                  data-wow-delay=".9s">
+                  <div class="it-footer-widget footer-col-4">
+                     <h4 class="it-footer-widget-title">Contact Us:</h4>
+                        <div class="it-footer-widget-contact">
+                           <div class="d-flex align-items-center mb-30">
+                              <div class="it-footer-contact-icon">
+                                 <span><i class="flaticon-phone-call"></i></span>
+                              </div>
+                              <div class="it-footer-contact-text">
+                                 <span>Phone:</span>
+                                 <a class="hover-anim white" href="tel:+917305489550">+91 73054 89550</a>
+                              </div>
+                           </div>
+                           <div class="d-flex align-items-center">
+                              <div class="it-footer-contact-icon">
+                                 <span><i class="flaticon-letter"></i></span>
+                              </div>
+                              <div class="it-footer-contact-text">
+                                 <span>E-mail:</span>
+                                 <a class="hover-anim white" href="mailto:marudhampharmacy@gmail.com">
+                                   marudhampharmacy@gmail.com</a>
+                              </div>
+                           </div>
+                           <div class="d-flex align-items-center" style="margin-top: 20px;">
+                              <div class="it-footer-contact-icon">
+                                 <span><i class="flaticon-letter"></i></span>
+                              </div>
+                              <div class="it-footer-contact-text">
+                                 <span>Address:</span>
+                                 <a class="hover-anim white" href="mailto:#">
+                                    No 49A,<br>CS Hospital,5th Street, Abirami Nagar Maduravoyal
+                                     Chennai-600095</a>
+                              </div>
+                           </div>
+                        </div>  
+                   
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer-area-end -->
+
+      <!-- copy-right area start -->
+      <div class="it-copyright-area it-copyright-height">
+         <div class="container">
+            <div class="row">
+               <div class="col-12 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                  <div class="it-copyright-text text-center">
+   <p>
+      © <span id="year"></span> 
+      <strong>Marudham Pharmacy</strong> || All Rights Reserved.  
+      Developed by 
+      <a href="https://chennaileads.com/" target="_blank" style="color:#5bb109; font-weight:600;">
+         Chennai Leads
+      </a>
+   </p>
+</div>
+
+<script>
+   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- copy-right area end -->
+
+   </footer>
+
+   <!-- JS here -->
+   <script src="assets/js/jquery.js"></script>
+   <script src="assets/js/bootstrap.bundle.min.js"></script>
+   <script src="assets/js/gsap.js"></script>
+   <script src="assets/js/slick.min.js"></script>
+   <script src="assets/js/jarallax.js"></script>
+   <script src="assets/js/range-slider.js"></script>
+   <script src="assets/js/magnific-popup.js"></script>
+   <script src="assets/js/purecounter.js"></script>
+   <script src="assets/js/wow.js"></script>
+   <script src="assets/js/nice-select.js"></script>
+   <script src="assets/js/swiper-bundle.js"></script>
+   <script src="assets/js/isotope-pkgd.js"></script>
+   <script src="assets/js/imagesloaded-pkgd.js"></script>
+   <script src="assets/js/countdown.js"></script>
+   <script src="assets/js/ajax-form.js"></script>
+   <script src="assets/js/it-cursor.js"></script>
+   <script src="assets/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+   const enquiryBtns = document.querySelectorAll(".enquiry-btn");
+   const popup = document.getElementById("enquiryPopup");
+   const closePopup = document.getElementById("closePopup");
+   const overlay = document.querySelector(".enquiry-popup-overlay");
+   const medicineNameInput = document.getElementById("medicineName");
+   const form = document.getElementById("whatsappEnquiryForm");
+
+   const prescriptionInput = document.getElementById("prescriptionImage");
+   const fileNameDisplay = document.getElementById("fileNameDisplay");
+   const previewWrap = document.getElementById("previewWrap");
+   const imagePreview = document.getElementById("imagePreview");
+
+   enquiryBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+         const medicineName = this.getAttribute("data-medicine");
+         medicineNameInput.value = medicineName || "";
+         popup.classList.add("active");
+         document.body.style.overflow = "hidden";
+      });
+   });
+
+   function closeEnquiryPopup() {
+      popup.classList.remove("active");
+      document.body.style.overflow = "";
+   }
+
+   closePopup.addEventListener("click", closeEnquiryPopup);
+   overlay.addEventListener("click", closeEnquiryPopup);
+
+   prescriptionInput.addEventListener("change", function () {
+      const file = this.files[0];
+
+      if (file) {
+         fileNameDisplay.textContent = file.name;
+
+         const reader = new FileReader();
+         reader.onload = function(e) {
+            imagePreview.src = e.target.result;
+            previewWrap.style.display = "block";
+         };
+         reader.readAsDataURL(file);
+      } else {
+         fileNameDisplay.textContent = "No file selected";
+         imagePreview.src = "";
+         previewWrap.style.display = "none";
+      }
+   });
+
+   form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const patientName = document.getElementById("patientName").value.trim();
+      const mobileNumber = document.getElementById("mobileNumber").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const medicineName = document.getElementById("medicineName").value.trim();
+      const prescriptionFile = prescriptionInput.files[0];
+
+      if (!prescriptionFile) {
+         alert("Please upload your prescription image.");
+         return;
+      }
+
+      const whatsappNumber = "917305489550"; // your WhatsApp number
+
+      const message =
+         "Pharmaceutical Products(Tablets)\n\n" +
+         "Patient Name: " + patientName + "\n" +
+         "Mobile Number: " + mobileNumber + "\n" +
+         "Medicine Name: " + medicineName + "\n" +
+         "Address: " + address + "\n" +
+         "Prescription File: " + prescriptionFile.name + "\n\n" +
+         "Note: Prescription image selected on website. Please attach it in WhatsApp before sending.";
+
+      const whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+      window.open(whatsappURL, "_blank");
+   });
+});
+</script>
+</body>
+
+
+<!-- Mirrored from ordainit.com/html/medito/medito/shop-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Apr 2026 05:27:47 GMT -->
+</html>

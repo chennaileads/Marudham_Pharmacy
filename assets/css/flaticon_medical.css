@@ -1,0 +1,227 @@
+
+
+@font-face {
+    font-family: "flaticon_medical";
+    src: url("../fonts/flaticon_medicale549.woff2?cde0b78270bee01f17a0d564b91eea70") format("woff2"),
+url("../fonts/flaticon_medicale549.woff?cde0b78270bee01f17a0d564b91eea70") format("woff"),
+url("../fonts/flaticon_medicale549.eot?cde0b78270bee01f17a0d564b91eea70#iefix") format("embedded-opentype"),
+url("../fonts/flaticon_medicale549.ttf?cde0b78270bee01f17a0d564b91eea70") format("truetype"),
+url("../fonts/flaticon_medicale549.html?cde0b78270bee01f17a0d564b91eea70#flaticon_medical") format("svg")
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_medical !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-check-mark:before {
+    content: "\f101";
+}
+.flaticon-phone-call:before {
+    content: "\f102";
+}
+.flaticon-doctor:before {
+    content: "\f103";
+}
+.flaticon-teamwork:before {
+    content: "\f104";
+}
+.flaticon-facebook-app-symbol:before {
+    content: "\f105";
+}
+.flaticon-youtube:before {
+    content: "\f106";
+}
+.flaticon-twitter:before {
+    content: "\f107";
+}
+.flaticon-call:before {
+    content: "\f108";
+}
+.flaticon-email:before {
+    content: "\f109";
+}
+.flaticon-user:before {
+    content: "\f10a";
+}
+.flaticon-message:before {
+    content: "\f10b";
+}
+.flaticon-play:before {
+    content: "\f10c";
+}
+.flaticon-right-arrow:before {
+    content: "\f10d";
+}
+.flaticon-arrow:before {
+    content: "\f10e";
+}
+.flaticon-star:before {
+    content: "\f10f";
+}
+.flaticon-eye:before {
+    content: "\f110";
+}
+.flaticon-refraction:before {
+    content: "\f111";
+}
+.flaticon-contact:before {
+    content: "\f112";
+}
+.flaticon-laser-surgery:before {
+    content: "\f113";
+}
+.flaticon-shared-vision:before {
+    content: "\f114";
+}
+.flaticon-doctor-2:before {
+    content: "\f115";
+}
+.flaticon-eye-1:before {
+    content: "\f116";
+}
+.flaticon-eye-surgery:before {
+    content: "\f117";
+}
+.flaticon-artificial-intelligence:before {
+    content: "\f118";
+}
+.flaticon-brain:before {
+    content: "\f119";
+}
+.flaticon-idea:before {
+    content: "\f11a";
+}
+.flaticon-counseling:before {
+    content: "\f11b";
+}
+.flaticon-kiss:before {
+    content: "\f11c";
+}
+.flaticon-medical-report:before {
+    content: "\f11d";
+}
+.flaticon-cardiology:before {
+    content: "\f11e";
+}
+.flaticon-heart:before {
+    content: "\f11f";
+}
+.flaticon-doctor-3:before {
+    content: "\f120";
+}
+.flaticon-robot:before {
+    content: "\f121";
+}
+.flaticon-microsurgery:before {
+    content: "\f122";
+}
+.flaticon-heart-disease:before {
+    content: "\f123";
+}
+.flaticon-i-love-you:before {
+    content: "\f124";
+}
+.flaticon-pacemaker:before {
+    content: "\f125";
+}
+.flaticon-double-quotes:before {
+    content: "\f126";
+}
+.flaticon-fast-delivery:before {
+    content: "\f127";
+}
+.flaticon-shopping-cart:before {
+    content: "\f128";
+}
+.flaticon-customer-service:before {
+    content: "\f129";
+}
+.flaticon-sale:before {
+    content: "\f12a";
+}
+.flaticon-rating:before {
+    content: "\f12b";
+}
+.flaticon-completed-task:before {
+    content: "\f12c";
+}
+.flaticon-people:before {
+    content: "\f12d";
+}
+.flaticon-medal:before {
+    content: "\f12e";
+}
+.flaticon-hospital:before {
+    content: "\f12f";
+}
+.flaticon-patient:before {
+    content: "\f130";
+}
+.flaticon-search-interface-symbol:before {
+    content: "\f131";
+}
+.flaticon-skype:before {
+    content: "\f132";
+}
+.flaticon-calendar:before {
+    content: "\f133";
+}
+.flaticon-quote:before {
+    content: "\f134";
+}
+.flaticon-share:before {
+    content: "\f135";
+}
+.flaticon-user-1:before {
+    content: "\f136";
+}
+.flaticon-clock:before {
+    content: "\f137";
+}
+.flaticon-chat:before {
+    content: "\f138";
+}
+.flaticon-view:before {
+    content: "\f139";
+}
+.flaticon-letter:before {
+    content: "\f13a";
+}
+.flaticon-location:before {
+    content: "\f13b";
+}
+.flaticon-next:before {
+    content: "\f13c";
+}
+.flaticon-pin:before {
+    content: "\f13d";
+}
+.flaticon-like:before {
+    content: "\f13e";
+}
+.flaticon-full-screen:before {
+    content: "\f13f";
+}
+.flaticon-exchange:before {
+    content: "\f140";
+}
+.flaticon-pinterest:before {
+    content: "\f141";
+}
+.flaticon-twitter-1:before {
+    content: "\f142";
+}
+.flaticon-instagram:before {
+    content: "\f143";
+}
+.flaticon-linkedin-1:before {
+    content: "\f144";
+}
+
