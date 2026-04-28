@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-<!-- Mirrored from ordainit.com/html/medito/medito/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Apr 2026 05:27:56 GMT -->
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="Marudham Pharmacy">
@@ -8,6 +7,7 @@
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+   
    <!-- CSS here -->
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
    <link rel="stylesheet" href="assets/css/animate.css">
@@ -20,6 +20,7 @@
    <link rel="stylesheet" href="assets/css/magnific-popup.css">
    <link rel="stylesheet" href="assets/css/spacing.css">
    <link rel="stylesheet" href="assets/css/main.css">
+   
    <style>
       .floating-contact {
          position: fixed;
@@ -32,6 +33,7 @@
          align-items: center;
          gap: 12px;
       }
+      
       .contact-btn {
          width: 50px;
          height: 50px;
@@ -45,545 +47,575 @@
          font-size: 22px;
          box-shadow: 0 6px 16px rgba(0,0,0,0.3);
       }
+      
       .whatsapp { background: #176835; }
       .call { background: #c62828; }
-      .enquiry-float {
-         position: fixed;
-         right: 20px;
-         width: 260px;
-         background: #fff;
-         padding: 15px;
-         border-radius: 10px;
-         box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-         z-index: 9999;
-         display: none;
-      }
-      .enquiry-float form h4 {
-         margin-bottom: 10px;
-         text-align: center;
-      }
-      .enquiry-float input,
-      .enquiry-float textarea {
-         width: 100%;
-         padding: 8px;
-         margin-bottom: 8px;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-      }
-      .enquiry-btn {
-         width: 100%;
-         background: #e63946;
+      
+      /* Custom Upload Button Styles */
+      .custom-upload-btn {
+         display: inline-block;
+         padding: 12px 25px;
+         background: linear-gradient(135deg, #0F3564, #1a4f8a);
          color: #fff;
-         border: none;
-         padding: 10px;
-         border-radius: 5px;
+         border-radius: 8px;
          cursor: pointer;
-         font-size: 15px;
-      }
-      .enquiry-btn:hover {
-         background: #c92f3c;
-      }
-      /* Style for status message */
-      #formStatus {
-         margin-top: 15px;
          font-weight: 500;
+         transition: all 0.3s ease;
+         border: 2px solid #0F3564;
+      }
+      
+      .custom-upload-btn:hover {
+         background: linear-gradient(135deg, #1a4f8a, #0F3564);
+         transform: translateY(-2px);
+         box-shadow: 0 5px 15px rgba(15, 53, 100, 0.3);
+      }
+      
+      .custom-upload-btn i {
+         margin-right: 8px;
+      }
+      
+      .preview-container {
+         position: relative;
+         display: inline-block;
+      }
+      
+      .remove-preview {
+         position: absolute;
+         top: -10px;
+         right: -10px;
+         background: #e63946;
+         color: white;
+         border: none;
+         border-radius: 50%;
+         width: 25px;
+         height: 25px;
+         cursor: pointer;
+         font-size: 12px;
+      }
+      
+      .loading-spinner {
+         display: none;
          text-align: center;
+         margin: 20px 0;
+      }
+      
+      .spinner {
+         border: 3px solid #f3f3f3;
+         border-top: 3px solid #0F3564;
+         border-radius: 50%;
+         width: 30px;
+         height: 30px;
+         animation: spin 1s linear infinite;
+         margin: 0 auto;
+      }
+      
+      @keyframes spin {
+         0% { transform: rotate(0deg); }
+         100% { transform: rotate(360deg); }
       }
    </style>
 </head>
 <body>
-<div class="floating-contact">
-  <a href="https://wa.me/917305489550" target="_blank" class="contact-btn whatsapp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="tel:+917305489550" class="contact-btn call">
-    <i class="fas fa-phone"></i>
-  </a>
-</div>
-
-<button class="scroll-top scroll-to-target" data-target="html">
-  <i class="far fa-angle-double-up"></i>
-</button>
-
-<div class="it-offcanvas-area">
-   <div class="itoffcanvas">
-      <div class="itoffcanvas__close-btn">
-         <button class="close-btn"><i class="fal fa-times"></i></button>
-      </div>
-      <div class="itoffcanvas__logo">
-         <a href="index.html">
-            <img src="assets/img/logo1.png" alt="" style="height: 100px;">
-         </a>
-      </div>
-      <div class="it-menu-mobile"></div>
+   <!-- Floating Contact Buttons -->
+   <div class="floating-contact">
+      <a href="https://wa.me/917305489550" target="_blank" class="contact-btn whatsapp">
+         <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="tel:+917305489550" class="contact-btn call">
+         <i class="fas fa-phone"></i>
+      </a>
    </div>
-</div>
-<div class="body-overlay"></div>
 
-<header class="header-height">
-   <div id="header-sticky" class="it-header-2-area it-header-inner-style z-index-5">
-      <div class="it-main-logo">
-         <a href="index.html"><img src="assets/img/logo1.png" style="height: 100px;" alt=""></a>
+   <!-- Back to Top Button -->
+   <button class="scroll-top scroll-to-target" data-target="html">
+      <i class="far fa-angle-double-up"></i>
+   </button>
+
+   <!-- Offcanvas Menu -->
+   <div class="it-offcanvas-area">
+      <div class="itoffcanvas">
+         <div class="itoffcanvas__close-btn">
+            <button class="close-btn"><i class="fal fa-times"></i></button>
+         </div>
+         <div class="itoffcanvas__logo">
+            <a href="index.html">
+               <img src="assets/img/logo1.png" alt="" style="height: 100px;">
+            </a>
+         </div>
+         <div class="it-menu-mobile"></div>
       </div>
-      <div class="it-header-2-pl">
-         <div class="it-header-2-top black-bg it-header-2-space-lr" data-background="assets/img/header/header-top-bg.html">
-            <div class="container-fluid">
-               <div class="row align-items-center">
-                  <div class="col-xl-8 col-lg-6 col-md-6">
-                     <div class="it-header-2-top-info">
+   </div>
+   <div class="body-overlay"></div>
+
+   <!-- Header -->
+   <header class="header-height">
+      <div id="header-sticky" class="it-header-2-area it-header-inner-style z-index-5">
+         <div class="it-main-logo">
+            <a href="index.html"><img src="assets/img/logo1.png" style="height: 100px;" alt=""></a>
+         </div>
+         <div class="it-header-2-pl">
+            <div class="it-header-2-top black-bg it-header-2-space-lr">
+               <div class="container-fluid">
+                  <div class="row align-items-center">
+                     <div class="col-xl-8 col-lg-6 col-md-6">
+                        <div class="it-header-2-top-info">
+                           <ul>
+                              <li class="d-none d-xl-inline-block">
+                                 <i class="flaticon-phone-call"></i>
+                                 <a class="hover-anim white" href="tel:+917305489550">+91 73054 89550</a>
+                              </li>
+                              <li>
+                                 <i class="flaticon-letter"></i>
+                                 <a class="hover-anim white" href="mailto:marudhampharmacy@gmail.com">marudhampharmacy@gmail.com</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-xl-4 col-lg-6 col-md-6 d-none d-md-block">
+                        <div class="it-header-2-top-right text-end">
+                           <div class="it-header-2-top-social">
+                              <a href="#"><i class="fab fa-facebook-f"></i></a>
+                              <a href="#"><i class="fab fa-instagram"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="it-header-2-area it-header-2-space-lr white-bg it-header-2-mob-space">
+               <div class="container-fluid">
+                  <div class="row align-items-center">
+                     <div class="col-xl-10 d-none d-xl-block">
+                        <div class="it-header-main-menu it-main-menu">
+                           <nav class="it-menu-content">
+                              <ul>
+                                 <li class="p-static"><a href="index.html">Home</a></li>
+                                 <li><a href="shop.html">Products</a></li>
+                                 <li><a href="about-us.html">About us</a></li>
+                                 <li><a href="gallery.html">Gallery</a></li>
+                                 <li><a href="reviews.html">Reviews</a></li>
+                                 <li><a href="contact.html">Contact</a></li>
+                              </ul>
+                           </nav>
+                        </div>
+                     </div>
+                     <div class="col-6 d-md-none">
+                        <div class="it-header-logo">
+                           <a href="index.html"><img src="assets/img/logo1.png" style="height: 100px;"></a>
+                        </div>
+                     </div>
+                     <div class="col-xl-2 col-lg-12 col-md-12 col-6">
+                        <div class="it-header-bar d-xl-none">
+                           <button class="it-menu-bar">
+                              <span><i class="fa-regular fa-bars-sort"></i></span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+
+   <main>
+      <!-- Breadcrumb -->
+      <div class="it-breadcrumb-area fix it-breadcrumb-bg p-relative" data-background="assets/img/breadcrumb/bg.jpg">
+         <div class="it-breadcrumb-shape-1">
+            <img src="assets/img/breadcrumb/shape-1.png" alt="">
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="it-breadcrumb-content z-index-3">
+                     <div class="it-breadcrumb-title-box">
+                        <h3 class="it-breadcrumb-title">Contact us</h3>
+                     </div>
+                     <div class="it-breadcrumb-list-wrap">
+                        <div class="it-breadcrumb-list">
+                           <span><a href="index.html">home</a></span>
+                           <span class="dvdr">//</span>
+                           <i>Contact us</i>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Contact Area -->
+      <div class="it-contact-area it-contact-inner-style pt-120 pb-120">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="it-contact-title-box text-center mb-55">
+                     <span class="it-section-subtitle">Contact Us</span>
+                     <h3 class="it-section-title">Get in Touch for Medicines <br>& Healthcare Support</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xl-8 col-lg-8">
+                  <div class="it-contact-from-wrap z-index">
+                     <!-- ✅ UPDATED FORM -->
+                     <form id="pharmacyForm" enctype="multipart/form-data" method="POST">
+                        <div class="row">
+                           <div class="col-sm-6 col-12 mb-20">
+                              <div class="it-contact-input-box">
+                                 <input type="text" name="patient_name" id="patientName" placeholder="Patient Name" required>
+                              </div>
+                           </div>
+                           <div class="col-sm-6 col-12 mb-20">
+                              <div class="it-contact-input-box">
+                                 <input type="tel" name="mobile" id="mobileNumber" placeholder="Mobile Number" required>
+                              </div>
+                           </div>
+                           <div class="col-sm-6 col-12 mb-20">
+                              <div class="it-contact-input-box">
+                                 <input type="email" name="email" id="emailAddress" placeholder="Email Address">
+                              </div>
+                           </div>
+                           <div class="col-sm-6 col-12 mb-20">
+                              <div class="it-contact-input-box">
+                                 <input type="text" name="medicine" id="medicineName" placeholder="Medicine Name">
+                              </div>
+                           </div>
+                           <div class="col-12 mb-20">
+                              <div class="it-contact-input-box">
+                                 <input type="text" name="subject" id="subjectDetails" placeholder="Prescription Details / Subject">
+                              </div>
+                           </div>
+                           <div class="col-12 mb-20">
+                              <div class="it-contact-input-box">
+                                 <textarea name="address" id="addressMessage" placeholder="Enter your address or additional message..." rows="3"></textarea>
+                              </div>
+                           </div>
+
+                           <!-- ✅ IMPROVED PRESCRIPTION UPLOAD -->
+                           <div class="col-12 mb-20">
+                              <div class="it-contact-input-box">
+                                 <label style="font-weight:600; margin-bottom:12px; display:block; color:#0F3564;">
+                                    📋 Upload Prescription
+                                 </label>
+                                 
+                                 <label for="prescriptionFile" class="custom-upload-btn">
+                                    <i class="fas fa-cloud-upload-alt"></i> Choose Prescription File
+                                 </label>
+                                 
+                                 <input type="file" id="prescriptionFile" name="prescription" accept="image/*,.pdf" style="display:none;" required>
+                                 
+                                 <small id="fileName" style="display:block; margin-top:12px; color:#666; font-weight:500;">
+                                    📎 No file selected
+                                 </small>
+                              </div>
+                           </div>
+
+                           <!-- ✅ IMAGE PREVIEW -->
+                           <div class="col-12 mb-20" id="previewBox" style="display:none;">
+                              <div class="preview-container">
+                                 <img id="previewImage" style="max-width:100%; max-height:300px; border-radius:10px; border:2px solid #0F3564; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                 <button type="button" class="remove-preview" onclick="removePreview()">✕</button>
+                              </div>
+                           </div>
+                        </div>
+
+                        <!-- Loading Spinner -->
+                        <div class="loading-spinner" id="loadingSpinner">
+                           <div class="spinner"></div>
+                           <p style="margin-top:10px; color:#0F3564;">Uploading prescription and sending to WhatsApp...</p>
+                        </div>
+
+                        <!-- Status Message -->
+                        <div id="formStatus" style="margin-top:15px; text-align:center;"></div>
+
+                        <button type="submit" class="it-btn-theme" id="submitBtn">
+                           <span class="btn-wrap">
+                              <span class="text-one">Submit Enquiry</span>
+                              <span class="text-two">Submit Enquiry</span>
+                           </span>
+                        </button>
+                     </form>
+                  </div>
+               </div>
+               
+               <!-- Contact Info Sidebar -->
+               <div class="col-xl-4 col-lg-4">
+                  <div class="it-contact__content mb-55">
+                     <ul>
+                        <li>
+                           <div class="it-contact__list d-flex align-items-start">
+                              <div class="it-footer-contact-icon">
+                                 <span><i class="flaticon-letter"></i></span>
+                              </div>
+                              <div class="it-contact__text">
+                                 <span>Our Email</span>
+                                 <a href="mailto:marudhampharmacy@gmail.com">marudhampharmacy@gmail.com</a>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="it-contact__list d-flex align-items-start">
+                              <div class="it-footer-contact-icon">
+                                 <span><i class="flaticon-location"></i></span>
+                              </div>
+                              <div class="it-contact__text">
+                                 <span>Our Address</span>
+                                 <a target="_blank" href="#">No 49A, CS Hospital, 5th Street, Abirami Nagar Maduravoyal Chennai-600095</a>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="it-contact__list d-flex align-items-start">
+                              <div class="it-footer-contact-icon">
+                                 <span><i class="flaticon-phone-call"></i></span>
+                              </div>
+                              <div class="it-contact__text">
+                                 <span>Contact</span>
+                                 <a href="tel:+917305489550">+91 73054 89550</a>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Map Area -->
+      <div class="it-map-area mb-120">
+         <div class="container">
+            <div class="it-map-wrap">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="it-map-content">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.5902406480072!2d80.17706969999999!3d13.061734099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52614f4d8f3895%3A0x7c9ad76567f5f0ad!2s49%2C%205th%20St%2C%20Abhirami%20Nagar%2C%20Maduravoyal%2C%20Chennai%2C%20Tamil%20Nadu%20600095!5e0!3m2!1sen!2sin!4v1776411285875!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Footer -->
+   <footer>
+      <div class="it-footer-area black-bg fix z-index p-relative pt-130 pb-70">
+         <div class="it-footer-shape-1">
+            <img src="assets/img/footer/shape-1-1.png" alt="">
+         </div>
+         <div class="it-footer-shape-2 d-none d-xl-block">
+            <img src="assets/img/footer/shape-1-2.png" alt="">
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-10 mb-50">
+                  <div class="it-footer-widget footer-col-1">
+                     <div class="it-footer-logo">
+                        <a href="index.html">
+                           <h4 class="it-footer-widget-title">About Us</h4>
+                        </a>
+                     </div>
+                     <div class="it-footer-text pb-15">
+                        <p>Marudham Pharmacy is dedicated to providing high-quality and trusted healthcare products for every need. We offer a wide range of medicines and wellness essentials, ensuring reliable service, affordable prices, and a commitment to your health and well-being.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-7 mb-50">
+                  <div class="it-footer-widget footer-col-2">
+                     <h4 class="it-footer-widget-title">Quick Links:</h4>
+                     <div class="it-footer-list">
                         <ul>
-                           <li class="d-none d-xl-inline-block">
-                              <i class="flaticon-phone-call"></i>
-                              <a class="hover-anim white" href="tel:+917305489550">+91 73054 89550</a>
-                           </li>
-                           <li>
-                              <i class="flaticon-letter"></i>
-                              <a class="hover-anim white" href="mailto:marudhampharmacy@gmail.com">marudhampharmacy@gmail.com</a>
-                           </li>
+                           <li><a href="index.html"><i class="fa-regular fa-angle-right"></i>Home</a></li>
+                           <li><a href="about-us.html"><i class="fa-regular fa-angle-right"></i>About</a></li>
+                           <li><a href="gallery.html"><i class="fa-regular fa-angle-right"></i>Gallery</a></li>
+                           <li><a href="reviews.html"><i class="fa-regular fa-angle-right"></i>Reviews</a></li>
+                           <li><a href="contact.html"><i class="fa-regular fa-angle-right"></i>Contact</a></li>
                         </ul>
                      </div>
                   </div>
-                  <div class="col-xl-4 col-lg-6 col-md-6 d-none d-md-block">
-                     <div class="it-header-2-top-right text-end">
-                        <div class="it-header-2-top-social">
-                           <a href="#"><i class="fab fa-facebook-f"></i></a>
-                           <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
+               </div>
+               <div class="col-xxl-3 col-xl-2 col-lg-3 col-md-6 col-sm-5 mb-50">
+                  <div class="it-footer-widget footer-col-3">
+                     <h4 class="it-footer-widget-title">Our Products</h4>
+                     <div class="it-footer-list">
+                        <ul>
+                           <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i>Pharmaceutical Products</a></li>
+                           <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i>Injections and Vaccines</a></li>
+                           <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i>Surgical and Orthopedic Supplies</a></li>
+                        </ul>
                      </div>
                   </div>
                </div>
-            </div>
-         </div>
-         <div class="it-header-2-area it-header-2-space-lr white-bg it-header-2-mob-space">
-            <div class="container-fluid">
-               <div class="row align-items-center">
-                  <div class="col-xl-10 d-none d-xl-block">
-                     <div class="it-header-main-menu it-main-menu">
-                        <nav class="it-menu-content">
-                           <ul>
-                              <li class="p-static"><a href="index.html">Home</a></li>
-                              <li><a href="shop.html">Products</a></li>
-                              <li><a href="about-us.html">About us</a></li>
-                              <li><a href="gallery.html">Gallery</a></li>
-                              <li><a href="reviews.html">Reviews</a></li>
-                              <li><a href="contact.html">Contact</a></li>
-                           </ul>
-                        </nav>
-                     </div>
-                  </div>
-                  <div class="col-6 d-md-none">
-                     <div class="it-header-logo">
-                        <a href="index.html"><img src="assets/img/logo1.png" style="height: 100px;"></a>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-12 col-md-12 col-6">
-                     <div class="it-header-bar d-xl-none">
-                        <button class="it-menu-bar">
-                           <span><i class="fa-regular fa-bars-sort"></i></span>
-                        </button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</header>
-
-<main>
-   <div class="it-breadcrumb-area fix it-breadcrumb-bg p-relative" data-background="assets/img/breadcrumb/bg.jpg">
-      <div class="it-breadcrumb-shape-1">
-         <img src="assets/img/breadcrumb/shape-1.png" alt="">
-      </div>
-      <div class="container">
-         <div class="row">
-            <div class="col-md-12">
-               <div class="it-breadcrumb-content z-index-3">
-                  <div class="it-breadcrumb-title-box">
-                     <h3 class="it-breadcrumb-title">Contact us</h3>
-                  </div>
-                  <div class="it-breadcrumb-list-wrap">
-                     <div class="it-breadcrumb-list">
-                        <span><a href="index.html">home</a></span>
-                        <span class="dvdr">//</span>
-                        <i>Contact us</i>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-   <div class="it-contact-area it-contact-inner-style pt-120 pb-120">
-      <div class="container">
-         <div class="row">
-            <div class="col-xl-12">
-               <div class="it-contact-title-box text-center mb-55">
-                  <span class="it-section-subtitle">Contact Us</span>
-                  <h3 class="it-section-title">Get in Touch for Medicines <br> & Healthcare Support</h3>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-xl-8 col-lg-8">
-               <div class="it-contact-from-wrap z-index">
-                  <form id="pharmacyForm" enctype="multipart/form-data">
-                     <div class="row">
-                        <div class="col-sm-6 col-12 mb-20">
-                           <div class="it-contact-input-box">
-                              <input type="text" id="patientName" placeholder="Patient Name" required>
-                           </div>
-                        </div>
-                        <div class="col-sm-6 col-12 mb-20">
-                           <div class="it-contact-input-box">
-                              <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
-                           </div>
-                        </div>
-                        <div class="col-sm-6 col-12 mb-20">
-                           <div class="it-contact-input-box">
-                              <input type="email" id="emailAddress" placeholder="Email Address">
-                           </div>
-                        </div>
-                        <div class="col-sm-6 col-12 mb-20">
-                           <div class="it-contact-input-box">
-                              <input type="text" id="medicineName" placeholder="Medicine Name">
-                           </div>
-                        </div>
-                        <div class="col-12 mb-20">
-                           <div class="it-contact-input-box">
-                              <input type="text" id="subjectDetails" placeholder="Prescription Details / Subject">
-                           </div>
-                        </div>
-                        <div class="col-12 mb-20">
-                           <div class="it-contact-input-box">
-                              <textarea id="addressMessage" placeholder="Enter your address or additional message..." rows="3"></textarea>
-                           </div>
-                        </div>
-                        <div class="col-12 mb-20">
-                           <div class="it-contact-input-box">
-                              <label style="font-weight:600; margin-bottom:8px; display:block;">Upload Prescription</label>
-                              <input type="file" id="prescriptionFile" accept="image/*" required>
-                              <small id="fileName" style="display:block; margin-top:8px; color:#666;">No file selected</small>
-                           </div>
-                        </div>
-                        <div class="col-12 mb-20" id="previewBox" style="display:none;">
-                           <img id="previewImage" style="max-width:100%; max-height:200px; border-radius:10px; border:1px solid #ddd;">
-                        </div>
-                     </div>
-                     <button type="submit" class="it-btn-theme">
-                        <span class="btn-wrap">
-                           <span class="text-one">Submit Enquiry</span>
-                           <span class="text-two">Submit Enquiry</span>
-                        </span>
-                     </button>
-                     <div id="formStatus"></div>
-                  </form>
-               </div>
-            </div>
-            <div class="col-xl-4 col-lg-4">
-               <div class="it-contact__content mb-55">
-                  <ul>
-                     <li>
-                        <div class="it-contact__list d-flex align-items-start">
-                           <div class="it-footer-contact-icon">
-                              <span><i class="flaticon-letter"></i></span>
-                           </div>
-                           <div class="it-contact__text">
-                              <span>Our Email</span>
-                              <a href="mailto:marudhampharmacy@gmail.com">marudhampharmacy@gmail.com</a>
-                           </div>
-                        </div>
-                     </li>
-                     <li>
-                        <div class="it-contact__list d-flex align-items-start">
-                           <div class="it-footer-contact-icon">
-                              <span><i class="flaticon-location"></i></span>
-                           </div>
-                           <div class="it-contact__text">
-                              <span>Our Address</span>
-                              <a target="_blank" href="#">No 49A, CS Hospital,5th Street, Abirami Nagar Maduravoyal Chennai-600095</a>
-                           </div>
-                        </div>
-                     </li>
-                     <li>
-                        <div class="it-contact__list d-flex align-items-start">
+               <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-50">
+                  <div class="it-footer-widget footer-col-4">
+                     <h4 class="it-footer-widget-title">Contact Us:</h4>
+                     <div class="it-footer-widget-contact">
+                        <div class="d-flex align-items-center mb-30">
                            <div class="it-footer-contact-icon">
                               <span><i class="flaticon-phone-call"></i></span>
                            </div>
-                           <div class="it-contact__text">
-                              <span>contact</span>
-                              <a href="tel:+917305489550">+91 73054 89550</a>
+                           <div class="it-footer-contact-text">
+                              <span>Phone:</span>
+                              <a class="hover-anim white" href="tel:+917305489550">+91 73054 89550</a>
                            </div>
                         </div>
-                     </li>
-                  </ul>
+                        <div class="d-flex align-items-center">
+                           <div class="it-footer-contact-icon">
+                              <span><i class="flaticon-letter"></i></span>
+                           </div>
+                           <div class="it-footer-contact-text">
+                              <span>E-mail:</span>
+                              <a class="hover-anim white" href="mailto:marudhampharmacy@gmail.com">marudhampharmacy@gmail.com</a>
+                           </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="margin-top: 20px;">
+                           <div class="it-footer-contact-icon">
+                              <span><i class="flaticon-location"></i></span>
+                           </div>
+                           <div class="it-footer-contact-text">
+                              <span>Address:</span>
+                              <a class="hover-anim white" href="#">No 49A, CS Hospital, 5th Street, Abirami Nagar Maduravoyal Chennai-600095</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
       </div>
-   </div>
-
-   <div class="it-map-area mb-120">
-      <div class="container">
-         <div class="it-map-wrap">
+      <div class="it-copyright-area it-copyright-height">
+         <div class="container">
             <div class="row">
                <div class="col-12">
-                  <div class="it-map-content">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.5902406480072!2d80.17706969999999!3d13.061734099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52614f4d8f3895%3A0x7c9ad76567f5f0ad!2s49%2C%205th%20St%2C%20Abhirami%20Nagar%2C%20Maduravoyal%2C%20Chennai%2C%20Tamil%20Nadu%20600095!5e0!3m2!1sen!2sin!4v1776411285875!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <div class="it-copyright-text text-center">
+                     <p>© <span id="year"></span> <strong>Marudham Pharmacy</strong> || All Rights Reserved. Developed by <a href="https://chennaileads.com/" target="_blank" style="color:#5bb109; font-weight:600;">Chennai Leads</a></p>
                   </div>
                </div>
             </div>
          </div>
       </div>
-   </div>
-</main>
+   </footer>
 
-<footer>
-   <div class="it-footer-area black-bg fix z-index p-relative pt-130 pb-70">
-      <div class="it-footer-shape-1">
-         <img src="assets/img/footer/shape-1-1.png" alt="">
-      </div>
-      <div class="it-footer-shape-2 d-none d-xl-block">
-         <img src="assets/img/footer/shape-1-2.png" alt="">
-      </div>
-      <div class="container">
-         <div class="row">
-            <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-10 mb-50 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-               <div class="it-footer-widget footer-col-1">
-                  <div class="it-footer-logo">
-                     <a href="index.html">
-                        <h4 class="it-footer-widget-title">About Us</h4>
-                     </a>
-                  </div>
-                  <div class="it-footer-text pb-15">
-                     <p>Marudham Pharmacy is dedicated to providing high-quality and trusted healthcare products for every need. We offer a wide range of medicines and wellness essentials, ensuring reliable service, affordable prices, and a commitment to your health and well-being.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-7 mb-50 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-               <div class="it-footer-widget footer-col-2">
-                  <h4 class="it-footer-widget-title">Quick Links:</h4>
-                  <div class="it-footer-list">
-                     <ul>
-                        <li><a href="index.html"><i class="fa-regular fa-angle-right"></i>Home</a></li>
-                        <li><a href="about-us.html"><i class="fa-regular fa-angle-right"></i>About</a></li>
-                        <li><a href="gallery.html"><i class="fa-regular fa-angle-right"></i>Gallery</a></li>
-                        <li><a href="reviews.html"><i class="fa-regular fa-angle-right"></i>Reviews</a></li>
-                        <li><a href="contact.html"><i class="fa-regular fa-angle-right"></i>Contact</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div class="col-xxl-3 col-xl-2 col-lg-3 col-md-6 col-sm-5 mb-50 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-               <div class="it-footer-widget footer-col-3">
-                  <h4 class="it-footer-widget-title">Our Products</h4>
-                  <div class="it-footer-list">
-                     <ul>
-                        <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i>Pharmaceutical Products</a></li>
-                        <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i>Injections and Vaccines</a></li>
-                        <li><a href="shop.html"><i class="fa-regular fa-angle-right"></i>Surgical and Orthopedic Supplies</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-50 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
-               <div class="it-footer-widget footer-col-4">
-                  <h4 class="it-footer-widget-title">Contact Us:</h4>
-                  <div class="it-footer-widget-contact">
-                     <div class="d-flex align-items-center mb-30">
-                        <div class="it-footer-contact-icon">
-                           <span><i class="flaticon-phone-call"></i></span>
-                        </div>
-                        <div class="it-footer-contact-text">
-                           <span>Phone:</span>
-                           <a class="hover-anim white" href="tel:+917305489550">+91 73054 89550</a>
-                        </div>
-                     </div>
-                     <div class="d-flex align-items-center">
-                        <div class="it-footer-contact-icon">
-                           <span><i class="flaticon-letter"></i></span>
-                        </div>
-                        <div class="it-footer-contact-text">
-                           <span>E-mail:</span>
-                           <a class="hover-anim white" href="mailto:marudhampharmacy@gmail.com">marudhampharmacy@gmail.com</a>
-                        </div>
-                     </div>
-                     <div class="d-flex align-items-center" style="margin-top: 20px;">
-                        <div class="it-footer-contact-icon">
-                           <span><i class="flaticon-letter"></i></span>
-                        </div>
-                        <div class="it-footer-contact-text">
-                           <span>Address:</span>
-                           <a class="hover-anim white" href="#">No 49A,<br>CS Hospital,5th Street, Abirami Nagar Maduravoyal Chennai-600095</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="it-copyright-area it-copyright-height">
-      <div class="container">
-         <div class="row">
-            <div class="col-12 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-               <div class="it-copyright-text text-center">
-                  <p>© <span id="year"></span> <strong>Marudham Pharmacy</strong> || All Rights Reserved. Developed by <a href="https://chennaileads.com/" target="_blank" style="color:#5bb109; font-weight:600;">Chennai Leads</a></p>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</footer>
+   <!-- JS Files -->
+   <script src="assets/js/jquery.js"></script>
+   <script src="assets/js/bootstrap.bundle.min.js"></script>
+   <script src="assets/js/slick.min.js"></script>
+   <script src="assets/js/magnific-popup.js"></script>
+   <script src="assets/js/wow.js"></script>
+   <script src="assets/js/nice-select.js"></script>
+   <script src="assets/js/swiper-bundle.js"></script>
+   <script src="assets/js/main.js"></script>
 
-<!-- JS here -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/gsap.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/jarallax.js"></script>
-<script src="assets/js/range-slider.js"></script>
-<script src="assets/js/magnific-popup.js"></script>
-<script src="assets/js/purecounter.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/nice-select.js"></script>
-<script src="assets/js/swiper-bundle.js"></script>
-<script src="assets/js/isotope-pkgd.js"></script>
-<script src="assets/js/imagesloaded-pkgd.js"></script>
-<script src="assets/js/countdown.js"></script>
-<script src="assets/js/ajax-form.js"></script>
-<script src="assets/js/it-cursor.js"></script>
-<script src="assets/js/main.js"></script>
+   <script>
+      // Set current year
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-<script>
-   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+      // File upload preview and name display
+      document.getElementById("prescriptionFile").addEventListener("change", function(e) {
+         const file = e.target.files[0];
+         const fileNameDisplay = document.getElementById("fileName");
+         const previewBox = document.getElementById("previewBox");
+         const previewImage = document.getElementById("previewImage");
 
-<!-- Custom script to handle form submission and WhatsApp redirect -->
-<script>
-   (function() {
-       const form = document.getElementById('pharmacyForm');
-       const fileInput = document.getElementById('prescriptionFile');
-       const fileNameDisplay = document.getElementById('fileName');
-       const previewBox = document.getElementById('previewBox');
-       const previewImage = document.getElementById('previewImage');
-       const statusDiv = document.getElementById('formStatus');
+         if (file) {
+            // Display file name
+            fileNameDisplay.innerHTML = `📎 ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+            fileNameDisplay.style.color = "#0F3564";
 
-       // WhatsApp number (without + or spaces)
-       const whatsappNumber = '917305489550';
-
-       // Update file name and preview when a file is selected
-       fileInput.addEventListener('change', function(e) {
-           const file = e.target.files[0];
-           if (file) {
-               fileNameDisplay.textContent = file.name;
+            // Preview image if it's an image file
+            if (file.type.startsWith('image/')) {
                const reader = new FileReader();
-               reader.onload = function(ev) {
-                   previewImage.src = ev.target.result;
-                   previewBox.style.display = 'block';
+               reader.onload = function(e) {
+                  previewImage.src = e.target.result;
+                  previewBox.style.display = "block";
                };
                reader.readAsDataURL(file);
-           } else {
-               fileNameDisplay.textContent = 'No file selected';
-               previewBox.style.display = 'none';
-               previewImage.src = '';
-           }
-       });
+            } else {
+               // For non-image files (like PDFs)
+               previewBox.style.display = "none";
+            }
+         } else {
+            fileNameDisplay.innerHTML = "📎 No file selected";
+            fileNameDisplay.style.color = "#666";
+            previewBox.style.display = "none";
+         }
+      });
 
-       // Handle form submission
-       form.addEventListener('submit', function(e) {
-           e.preventDefault();
-           
-           // Get form values
-           const patientName = document.getElementById('patientName').value.trim();
-           const mobile = document.getElementById('mobileNumber').value.trim();
-           const email = document.getElementById('emailAddress').value.trim();
-           const medicine = document.getElementById('medicineName').value.trim();
-           const subject = document.getElementById('subjectDetails').value.trim();
-           const address = document.getElementById('addressMessage').value.trim();
-           const file = fileInput.files[0];
+      // Remove preview
+      function removePreview() {
+         document.getElementById("prescriptionFile").value = "";
+         document.getElementById("fileName").innerHTML = "📎 No file selected";
+         document.getElementById("fileName").style.color = "#666";
+         document.getElementById("previewBox").style.display = "none";
+         document.getElementById("previewImage").src = "";
+      }
 
-           // Basic validation
-           if (!patientName || !mobile) {
-               statusDiv.innerHTML = '<span style="color:red;">Please fill in Patient Name and Mobile Number.</span>';
-               return;
-           }
-           if (!file) {
-               statusDiv.innerHTML = '<span style="color:red;">Please upload a prescription image.</span>';
-               return;
-           }
+      // Form submission with AJAX
+      document.getElementById("pharmacyForm").addEventListener("submit", async function(e) {
+         e.preventDefault();
 
-           // Show loading status
-           statusDiv.innerHTML = '<span style="color:#333;">Processing prescription, please wait...</span>';
+         const form = e.target;
+         const formData = new FormData(form);
+         const submitBtn = document.getElementById("submitBtn");
+         const loadingSpinner = document.getElementById("loadingSpinner");
+         const formStatus = document.getElementById("formStatus");
+         const fileInput = document.getElementById("prescriptionFile");
 
-           // Build the WhatsApp message text
-           let messageText = '📋 *New Prescription Enquiry* 📋\n\n';
-           messageText += `👤 *Patient Name:* ${patientName}\n`;
-           messageText += `📱 *Mobile:* ${mobile}\n`;
-           if (email) messageText += `📧 *Email:* ${email}\n`;
-           if (medicine) messageText += `💊 *Medicine:* ${medicine}\n`;
-           if (subject) messageText += `📝 *Details:* ${subject}\n`;
-           if (address) messageText += `📍 *Address:* ${address}\n`;
-           messageText += '\n📎 _Prescription image is attached below._';
+         // Validate file selection
+         if (!fileInput.files[0]) {
+            formStatus.innerHTML = '<span style="color:#e63946;">❌ Please upload a prescription file.</span>';
+            return;
+         }
 
-           // Encode the message for URL
-           const encodedMessage = encodeURIComponent(messageText);
-           
-           // Create a WhatsApp URL that includes the text message
-           // The image itself cannot be sent via URL; we will open WhatsApp with the text,
-           // and the user can manually attach the image. However, the requirement says
-           // "send the prescription to WhatsApp without any API".
-           // The standard way to share an image directly to WhatsApp without a backend
-           // is to use the Web Share API if available, or fallback to opening WhatsApp with text.
-           
-           // First, try to use the Web Share API to share the image file directly.
-           if (navigator.share && navigator.canShare) {
-               const fileToShare = new File([file], file.name, { type: file.type });
-               const shareData = {
-                   title: 'Prescription from ' + patientName,
-                   text: messageText,
-                   files: [fileToShare]
-               };
-               
-               if (navigator.canShare(shareData)) {
-                   navigator.share(shareData)
-                       .then(() => {
-                           statusDiv.innerHTML = '<span style="color:green;">Prescription shared successfully! You can select WhatsApp to send.</span>';
-                           // Optionally reset form
-                           form.reset();
-                           fileNameDisplay.textContent = 'No file selected';
-                           previewBox.style.display = 'none';
-                       })
-                       .catch((error) => {
-                           console.log('Share failed', error);
-                           // Fallback: open WhatsApp with text only
-                           openWhatsAppTextOnly(encodedMessage);
-                       });
-               } else {
-                   // Files sharing not supported by browser, fallback
-                   openWhatsAppTextOnly(encodedMessage);
-               }
-           } else {
-               // Web Share API not available, fallback
-               openWhatsAppTextOnly(encodedMessage);
-           }
+         // Show loading state
+         submitBtn.disabled = true;
+         submitBtn.style.opacity = "0.7";
+         loadingSpinner.style.display = "block";
+         formStatus.innerHTML = "";
 
-           function openWhatsAppTextOnly(encodedMsg) {
-               // Open WhatsApp with the text message. The user will need to manually attach the image.
-               const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
-               statusDiv.innerHTML = '<span style="color:#3366cc;">Opening WhatsApp... Please attach the prescription image manually if not auto-attached.</span>';
-               window.open(whatsappUrl, '_blank');
-               // Reset form after a short delay to allow opening
+         try {
+            // Send to PHP backend
+            const response = await fetch("submit.php", {
+               method: "POST",
+               body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+               // Show success message
+               formStatus.innerHTML = '<span style="color:#28a745;">✅ Prescription uploaded successfully! Opening WhatsApp...</span>';
+
+               // Open WhatsApp with the message
                setTimeout(() => {
-                   form.reset();
-                   fileNameDisplay.textContent = 'No file selected';
-                   previewBox.style.display = 'none';
-               }, 500);
-           }
-       });
-   })();
-</script>
+                  window.open(result.whatsapp_url, "_blank");
+               }, 1000);
+
+               // Reset form after 2 seconds
+               setTimeout(() => {
+                  form.reset();
+                  document.getElementById("fileName").innerHTML = "📎 No file selected";
+                  document.getElementById("fileName").style.color = "#666";
+                  document.getElementById("previewBox").style.display = "none";
+                  document.getElementById("previewImage").src = "";
+                  formStatus.innerHTML = "";
+               }, 2000);
+
+            } else {
+               throw new Error(result.message || "Upload failed");
+            }
+
+         } catch (error) {
+            formStatus.innerHTML = `<span style="color:#e63946;">❌ Error: ${error.message}</span>`;
+         } finally {
+            // Hide loading state
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = "1";
+            loadingSpinner.style.display = "none";
+         }
+      });
+   </script>
 </body>
-<!-- Mirrored from ordainit.com/html/medito/medito/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Apr 2026 05:27:56 GMT -->
 </html>
