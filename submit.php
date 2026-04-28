@@ -1,45 +1,69 @@
 <?php
+// Enable error reporting for debugging (remove in production)
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+
+// Set headers FIRST before any output
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
+
+// Only allow POST method
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Method Not Allowed. Please use POST method.'
+    ]);
+    exit;
+}
 
 // ==================== CONFIGURATION ====================
 $whatsapp_number = "919629276131"; // Without + sign
-$upload_dir = "uploads/";
-$log_file = "logs/prescription_requests.log"; // Log file path
-$log_dir = "logs/";
+$upload_dir = __DIR__ . "/uploads/";
+$log_dir = __DIR__ . "/logs/";
+$log_file = $log_dir . "prescription_requests.log";
 $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf'];
 $max_file_size = 5 * 1024 * 1024; // 5MB
 
 // ==================== AUTO-CREATE DIRECTORIES ====================
-// Create uploads directory if it doesn't exist
-if (!file_exists($upload_dir)) {
-    if (!mkdir($upload_dir, 0755, true)) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Failed to create uploads directory. Please check permissions.'
-        ]);
-        exit;
+try {
+    // Create uploads directory
+    if (!file_exists($upload_dir)) {
+        if (!mkdir($upload_dir, 0755, true)) {
+            throw new Exception('Failed to create uploads directory');
+        }
+        file_put_contents($upload_dir . 'index.html', '<!-- Directory listing disabled -->');
     }
-    // Create index.html to prevent directory listing
-    file_put_contents($upload_dir . 'index.html', '');
-}
 
-// Create logs directory if it doesn't exist
-if (!file_exists($log_dir)) {
-    if (!mkdir($log_dir, 0755, true)) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Failed to create logs directory. Please check permissions.'
-        ]);
-        exit;
+    // Create logs directory
+    if (!file_exists($log_dir)) {
+        if (!mkdir($log_dir, 0755, true)) {
+            throw new Exception('Failed to create logs directory');
+        }
+        file_put_contents($log_dir . 'index.html', '<!-- Directory listing disabled -->');
     }
-    // Create index.html to prevent directory listing
-    file_put_contents($log_dir . 'index.html', '');
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Server configuration error: ' . $e->getMessage()
+    ]);
+    exit;
 }
 
 // ==================== FUNCTION TO LOG DATA ====================
 function logPrescriptionRequest($data, $log_file) {
     $timestamp = date('Y-m-d H:i:s');
-    $log_entry = "========================================\n";
+    $log_entry = "\n========================================\n";
     $log_entry .= "TIMESTAMP: $timestamp\n";
     $log_entry .= "REQUEST ID: " . $data['request_id'] . "\n";
     $log_entry .= "----------------------------------------\n";
@@ -64,101 +88,78 @@ function logPrescriptionRequest($data, $log_file) {
     $log_entry .= "STATUS: " . $data['status'] . "\n";
     $log_entry .= "WHATSAPP NUMBER: " . $data['whatsapp_number'] . "\n";
     $log_entry .= "IP ADDRESS: " . $data['ip_address'] . "\n";
-    $log_entry .= "USER AGENT: " . $data['user_agent'] . "\n";
-    $log_entry .= "========================================\n\n";
+    $log_entry .= "========================================\n";
     
-    // Append to log file
     return file_put_contents($log_file, $log_entry, FILE_APPEND | LOCK_EX);
-}
-
-// ==================== FUNCTION TO CREATE CSV LOG ====================
-function logToCSV($data, $csv_file) {
-    $csv_dir = dirname($csv_file);
-    if (!file_exists($csv_dir)) {
-        mkdir($csv_dir, 0755, true);
-    }
-    
-    // Create CSV with headers if file doesn't exist
-    if (!file_exists($csv_file)) {
-        $headers = [
-            'Timestamp', 'Request ID', 'Patient Name', 'Mobile', 'Email', 
-            'Medicine', 'Subject', 'Address', 'Original Filename', 'Saved Filename',
-            'File Size (KB)', 'File Type', 'File URL', 'Status', 'WhatsApp Number', 'IP Address'
-        ];
-        $fp = fopen($csv_file, 'w');
-        fputcsv($fp, $headers);
-        fclose($fp);
-    }
-    
-    // Prepare data row
-    $row = [
-        date('Y-m-d H:i:s'),
-        $data['request_id'],
-        $data['patient_name'],
-        $data['mobile'],
-        $data['email'] ?: 'N/A',
-        $data['medicine'] ?: 'N/A',
-        $data['subject'] ?: 'N/A',
-        $data['address'] ?: 'N/A',
-        $data['original_filename'],
-        $data['saved_filename'],
-        round($data['file_size']/1024, 2),
-        $data['file_type'],
-        $data['file_url'],
-        $data['status'],
-        $data['whatsapp_number'],
-        $data['ip_address']
-    ];
-    
-    $fp = fopen($csv_file, 'a');
-    fputcsv($fp, $row);
-    fclose($fp);
 }
 
 // ==================== MAIN PROCESS ====================
 try {
     // Check if file was uploaded
-    if (!isset($_FILES['prescription']) || $_FILES['prescription']['error'] !== UPLOAD_ERR_OK) {
-        throw new Exception("Please select a prescription file to upload.");
+    if (!isset($_FILES['prescription'])) {
+        throw new Exception("No prescription file uploaded. Please select a file.");
     }
 
     $file = $_FILES['prescription'];
 
+    // Check for upload errors
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        $errorMessages = [
+            UPLOAD_ERR_INI_SIZE => 'File exceeds server size limit',
+            UPLOAD_ERR_FORM_SIZE => 'File exceeds form size limit',
+            UPLOAD_ERR_PARTIAL => 'File was only partially uploaded',
+            UPLOAD_ERR_NO_FILE => 'No file was uploaded',
+            UPLOAD_ERR_NO_TMP_DIR => 'Missing temporary folder',
+            UPLOAD_ERR_CANT_WRITE => 'Failed to write file to disk',
+            UPLOAD_ERR_EXTENSION => 'File upload stopped by extension'
+        ];
+        $errorMsg = $errorMessages[$file['error']] ?? 'Unknown upload error';
+        throw new Exception("Upload error: " . $errorMsg);
+    }
+
     // Validate file type
     if (!in_array($file['type'], $allowed_types)) {
-        throw new Exception("Invalid file type. Please upload an image (JPG, PNG, GIF, WebP) or PDF file.");
+        throw new Exception("Invalid file type (" . $file['type'] . "). Please upload an image or PDF file.");
     }
 
     // Validate file size
     if ($file['size'] > $max_file_size) {
-        throw new Exception("File is too large. Maximum size is 5MB.");
+        throw new Exception("File is too large (" . round($file['size']/1024, 2) . " KB). Maximum size is 5MB.");
+    }
+
+    // Get form data
+    $patient_name = trim($_POST['patient_name'] ?? '');
+    $mobile = trim($_POST['mobile'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $medicine = trim($_POST['medicine'] ?? '');
+    $subject = trim($_POST['subject'] ?? '');
+    $address = trim($_POST['address'] ?? '');
+
+    // Validate required fields
+    if (empty($patient_name)) {
+        throw new Exception("Patient name is required.");
+    }
+    if (empty($mobile)) {
+        throw new Exception("Mobile number is required.");
     }
 
     // Generate unique request ID
     $request_id = 'REQ-' . date('Ymd') . '-' . strtoupper(substr(uniqid(), -6));
     
     // Generate unique filename
-    $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-    $unique_filename = time() . '_' . $request_id . '.' . $file_extension;
+    $file_extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    $unique_filename = date('Y-m-d_H-i-s') . '_' . $request_id . '.' . $file_extension;
     $upload_path = $upload_dir . $unique_filename;
 
     // Move uploaded file
     if (!move_uploaded_file($file['tmp_name'], $upload_path)) {
-        throw new Exception("Failed to upload file. Please try again.");
+        throw new Exception("Failed to save file. Please try again.");
     }
 
-    // Get form data
-    $patient_name = $_POST['patient_name'] ?? '';
-    $mobile = $_POST['mobile'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $medicine = $_POST['medicine'] ?? '';
-    $subject = $_POST['subject'] ?? '';
-    $address = $_POST['address'] ?? '';
-
     // Create public URL for the file
-    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https://' : 'http://';
     $domain = $_SERVER['HTTP_HOST'];
-    $file_url = $protocol . $domain . '/' . $upload_path;
+    $file_url = $protocol . $domain . '/uploads/' . $unique_filename;
 
     // Prepare data for logging
     $log_data = [
@@ -177,25 +178,11 @@ try {
         'server_path' => $upload_path,
         'status' => 'SUCCESS',
         'whatsapp_number' => $whatsapp_number,
-        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'Unknown',
-        'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown'
+        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'Unknown'
     ];
 
-    // ==================== LOGGING ====================
-    // 1. Log to text file (detailed)
+    // Log the request
     logPrescriptionRequest($log_data, $log_file);
-    
-    // 2. Log to CSV file (for Excel/spreadsheet)
-    $csv_file = $log_dir . 'prescription_requests.csv';
-    logToCSV($log_data, $csv_file);
-
-    // 3. Optional: Create individual log file for each request
-    $individual_log = $log_dir . 'requests/' . $request_id . '.json';
-    $individual_log_dir = $log_dir . 'requests/';
-    if (!file_exists($individual_log_dir)) {
-        mkdir($individual_log_dir, 0755, true);
-    }
-    file_put_contents($individual_log, json_encode($log_data, JSON_PRETTY_PRINT));
 
     // ==================== BUILD WHATSAPP MESSAGE ====================
     $whatsapp_message = "🆕 *New Prescription Request*\n\n";
@@ -221,29 +208,24 @@ try {
     }
     
     $whatsapp_message .= "\n📎 *Prescription File:*\n$file_url";
-    $whatsapp_message .= "\n\n_File uploaded successfully at " . date('h:i A') . "_";
+    $whatsapp_message .= "\n\n_File uploaded at " . date('h:i A') . "_";
     $whatsapp_message .= "\n_ID: $request_id_";
 
     // Create WhatsApp URL
     $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($whatsapp_message);
 
-    // ==================== RETURN SUCCESS RESPONSE ====================
+    // Return success response
     echo json_encode([
         'success' => true,
-        'message' => 'Prescription uploaded successfully!',
+        'message' => 'Prescription uploaded successfully! Opening WhatsApp...',
         'request_id' => $request_id,
         'file_url' => $file_url,
         'whatsapp_url' => $whatsapp_url,
-        'filename' => $unique_filename,
-        'logged_to' => [
-            'text_log' => $log_file,
-            'csv_log' => $csv_file,
-            'individual_log' => $individual_log
-        ]
+        'filename' => $unique_filename
     ]);
 
 } catch (Exception $e) {
-    // Log the error
+    // Log failed attempts
     $error_data = [
         'request_id' => 'FAILED-' . date('Ymd') . '-' . strtoupper(substr(uniqid(), -6)),
         'patient_name' => $_POST['patient_name'] ?? 'Unknown',
@@ -260,14 +242,11 @@ try {
         'server_path' => 'N/A',
         'status' => 'FAILED - ' . $e->getMessage(),
         'whatsapp_number' => $whatsapp_number,
-        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'Unknown',
-        'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown'
+        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'Unknown'
     ];
     
-    // Log failed attempts too
     logPrescriptionRequest($error_data, $log_file);
     
-    // Return error response
     http_response_code(400);
     echo json_encode([
         'success' => false,
