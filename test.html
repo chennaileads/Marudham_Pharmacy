@@ -1,41 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test Upload</title>
+    <title>Test Prescription Upload</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input, button { margin: 5px 0; padding: 8px; }
+        #status { margin-top: 15px; padding: 10px; }
+    </style>
 </head>
 <body>
-    <h2>Test Prescription Upload</h2>
+    <h2>🧪 Test Prescription Upload</h2>
     <form id="testForm" enctype="multipart/form-data">
-        <input type="text" name="patient_name" placeholder="Patient Name" required><br><br>
-        <input type="text" name="mobile" placeholder="Mobile" required><br><br>
-        <input type="file" name="prescription" accept="image/*" required><br><br>
-        <button type="submit">Test Upload</button>
+        <input type="text" name="patient_name" placeholder="Patient Name" required><br>
+        <input type="text" name="mobile" placeholder="Mobile Number" required><br>
+        <input type="email" name="email" placeholder="Email (optional)"><br>
+        <input type="text" name="medicine" placeholder="Medicine Name (optional)"><br>
+        <input type="text" name="subject" placeholder="Subject (optional)"><br>
+        <textarea name="address" placeholder="Address (optional)"></textarea><br>
+        <input type="file" name="prescription" accept="image/*" required><br>
+        <button type="submit">📤 Upload & Send to WhatsApp</button>
     </form>
     <div id="status"></div>
 
     <script>
     document.getElementById("testForm").addEventListener("submit", async function(e) {
         e.preventDefault();
-        const formData = new FormData(this);
         
-        document.getElementById("status").innerHTML = "Uploading...";
+        const formData = new FormData(this);
+        const statusDiv = document.getElementById("status");
+        
+        statusDiv.innerHTML = "⏳ Uploading...";
+        statusDiv.style.color = "blue";
         
         try {
             const response = await fetch("submit.php", {
                 method: "POST",
                 body: formData
+                // Do NOT set Content-Type header
             });
             
+            console.log("Response status:", response.status);
+            
             const result = await response.json();
+            console.log("Result:", result);
             
             if (result.success) {
-                document.getElementById("status").innerHTML = 
-                    "✅ Success! <a href='" + result.whatsapp_url + "' target='_blank'>Open WhatsApp</a>";
+                statusDiv.innerHTML = `✅ Success! Request ID: ${result.request_id}<br>
+                    <a href="${result.whatsapp_url}" target="_blank">📱 Click to open WhatsApp</a>`;
+                statusDiv.style.color = "green";
+                
+                // Auto-open WhatsApp
+                window.open(result.whatsapp_url, "_blank");
             } else {
-                document.getElementById("status").innerHTML = "❌ Error: " + result.message;
+                statusDiv.innerHTML = "❌ " + result.message;
+                statusDiv.style.color = "red";
             }
         } catch (error) {
-            document.getElementById("status").innerHTML = "❌ Error: " + error.message;
+            console.error("Error:", error);
+            statusDiv.innerHTML = "❌ Network Error: " + error.message;
+            statusDiv.style.color = "red";
         }
     });
     </script>
